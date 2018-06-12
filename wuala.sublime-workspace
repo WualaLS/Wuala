@@ -11,25 +11,24 @@
 			"file": "cordova/1/src-cordova/config.xml",
 			"settings":
 			{
-				"buffer_size": 1018,
+				"buffer_size": 1071,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "Searching 29720 files for \"JAVA_HOME\"\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\cordova\\1\\src-cordova\\node_modules\\cordova-android\\bin\\templates\\cordova\\lib\\check_reqs.js:\n  158  module.exports.check_java = function () {\n  159      var javacPath = forgivingWhichSync('javac');\n  160:     var hasJavaHome = !!process.env['JAVA_HOME'];\n  161      return Q().then(function () {\n  162          if (hasJavaHome) {\n  163:             // Windows java installer doesn't add javac to PATH, nor set JAVA_HOME (ugh).\n  164              if (!javacPath) {\n  165:                 process.env['PATH'] += path.delimiter + path.join(process.env['JAVA_HOME'], 'bin');\n  166              }\n  167          } else {\n  168              if (javacPath) {\n  169:                 // OS X has a command for finding JAVA_HOME.\n  170:                 var find_java = '/usr/libexec/java_home';\n  171:                 var default_java_error_msg = 'Failed to find \\'JAVA_HOME\\' environment variable. Try setting it manually.';\n  172                  if (fs.existsSync(find_java)) {\n  173                      return superspawn.spawn(find_java).then(function (stdout) {\n  174:                         process.env['JAVA_HOME'] = stdout.trim();\n  175                      }).catch(function (err) {\n  176                          if (err) {\n  ...\n  183                      var maybeJavaHome = path.dirname(path.dirname(javacPath));\n  184                      if (fs.existsSync(path.join(maybeJavaHome, 'lib', 'tools.jar'))) {\n  185:                         process.env['JAVA_HOME'] = maybeJavaHome;\n  186                      } else {\n  187                          throw new CordovaError(default_java_error_msg);\n  ...\n  203                          process.env['PATH'] += path.delimiter + path.join(firstJdkDir, 'bin');\n  204                      }\n  205:                     process.env['JAVA_HOME'] = firstJdkDir;\n  206                  }\n  207              }\n  ...\n  211              'Failed to run \"javac -version\", make sure that you have a JDK installed.\\n' +\n  212              'You can get it from: http://www.oracle.com/technetwork/java/javase/downloads.\\n';\n  213:         if (process.env['JAVA_HOME']) {\n  214:             msg += 'Your JAVA_HOME is invalid: ' + process.env['JAVA_HOME'] + '\\n';\n  215          }\n  216          // We use tryCommand with catchStderr = true, because\n  ...\n  365      return Q.all([this.check_java(), this.check_android()]).then(function (values) {\n  366          console.log('ANDROID_HOME=' + process.env['ANDROID_HOME']);\n  367:         console.log('JAVA_HOME=' + process.env['JAVA_HOME']);\n  368  \n  369          if (!values[0]) {\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\cordova\\1\\src-cordova\\node_modules\\cordova-android\\RELEASENOTES.md:\n  432  * Set VERSION to 3.6.4 (via coho)\n  433  * Update JS snapshot to version 3.6.4 (via coho)\n  434: * [CB-7634](https://issues.apache.org/jira/browse/CB-7634) Detect JAVA_HOME properly on Ubuntu\n  435  * [CB-7579](https://issues.apache.org/jira/browse/CB-7579) Fix run script's ability to use non-arch-specific APKs\n  436  * [CB-6511](https://issues.apache.org/jira/browse/CB-6511) Fixes build for android when app name contains unicode characters.\n  ...\n  466  * [CB-3445](https://issues.apache.org/jira/browse/CB-3445) Copy gradle wrapper in build instead of create\n  467  * [CB-3445](https://issues.apache.org/jira/browse/CB-3445) Add .gradle template files for \"update\" as well as \"create\"\n  468: * [CB-7044](https://issues.apache.org/jira/browse/CB-7044) Add JAVA_HOME when not set. Be stricter about ANDROID_HOME\n  469  * [CB-3445](https://issues.apache.org/jira/browse/CB-3445) Speed up gradle building (incremental builds go from 10s -> 1.5s for me)\n  470  * [CB-3445](https://issues.apache.org/jira/browse/CB-3445) android: Copy Gradle wrapper from Android SDK rather than bundling a JAR\n  ...\n  628  * [CB-5487](https://issues.apache.org/jira/browse/CB-5487) Enable Remote Debugging when your Android app is debuggable.\n  629  * [CB-5445](https://issues.apache.org/jira/browse/CB-5445) Adding onScrollChanged and the ScrollEvent object\n  630: * [CB-5422](https://issues.apache.org/jira/browse/CB-5422) Don't require JAVA_HOME to be defined\n  631  * [CB-5490](https://issues.apache.org/jira/browse/CB-5490) Add javadoc target to ant script\n  632  * [CB-5471](https://issues.apache.org/jira/browse/CB-5471) Deprecated DroidGap class\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\cordova\\1\\src-cordova\\node_modules\\cordova-android\\spec\\fixtures\\android_studio_project\\gradlew:\n   64  \n   65  # Determine the Java command to use to start the JVM.\n   66: if [ -n \"$JAVA_HOME\" ] ; then\n   67:     if [ -x \"$JAVA_HOME/jre/sh/java\" ] ; then\n   68          # IBM's JDK on AIX uses strange locations for the executables\n   69:         JAVACMD=\"$JAVA_HOME/jre/sh/java\"\n   70      else\n   71:         JAVACMD=\"$JAVA_HOME/bin/java\"\n   72      fi\n   73      if [ ! -x \"$JAVACMD\" ] ; then\n   74:         die \"ERROR: JAVA_HOME is set to an invalid directory: $JAVA_HOME\n   75  \n   76: Please set the JAVA_HOME variable in your environment to match the\n   77  location of your Java installation.\"\n   78      fi\n   79  else\n   80      JAVACMD=\"java\"\n   81:     which java >/dev/null 2>&1 || die \"ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.\n   82  \n   83: Please set the JAVA_HOME variable in your environment to match the\n   84  location of your Java installation.\"\n   85  fi\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\cordova\\1\\src-cordova\\node_modules\\cordova-android\\spec\\fixtures\\android_studio_project\\gradlew.bat:\n   18  \n   19  @rem Find java.exe\n   20: if defined JAVA_HOME goto findJavaFromJavaHome\n   21  \n   22  set JAVA_EXE=java.exe\n   ..\n   25  \n   26  echo.\n   27: echo ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.\n   28  echo.\n   29: echo Please set the JAVA_HOME variable in your environment to match the\n   30  echo location of your Java installation.\n   31  \n   ..\n   33  \n   34  :findJavaFromJavaHome\n   35: set JAVA_HOME=%JAVA_HOME:\"=%\n   36: set JAVA_EXE=%JAVA_HOME%/bin/java.exe\n   37  \n   38  if exist \"%JAVA_EXE%\" goto init\n   39  \n   40  echo.\n   41: echo ERROR: JAVA_HOME is set to an invalid directory: %JAVA_HOME%\n   42  echo.\n   43: echo Please set the JAVA_HOME variable in your environment to match the\n   44  echo location of your Java installation.\n   45  \n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\cordova\\1\\src-cordova\\platforms\\android\\cordova\\lib\\check_reqs.js:\n  158  module.exports.check_java = function () {\n  159      var javacPath = forgivingWhichSync('javac');\n  160:     var hasJavaHome = !!process.env['JAVA_HOME'];\n  161      return Q().then(function () {\n  162          if (hasJavaHome) {\n  163:             // Windows java installer doesn't add javac to PATH, nor set JAVA_HOME (ugh).\n  164              if (!javacPath) {\n  165:                 process.env['PATH'] += path.delimiter + path.join(process.env['JAVA_HOME'], 'bin');\n  166              }\n  167          } else {\n  168              if (javacPath) {\n  169:                 // OS X has a command for finding JAVA_HOME.\n  170:                 var find_java = '/usr/libexec/java_home';\n  171:                 var default_java_error_msg = 'Failed to find \\'JAVA_HOME\\' environment variable. Try setting it manually.';\n  172                  if (fs.existsSync(find_java)) {\n  173                      return superspawn.spawn(find_java).then(function (stdout) {\n  174:                         process.env['JAVA_HOME'] = stdout.trim();\n  175                      }).catch(function (err) {\n  176                          if (err) {\n  ...\n  183                      var maybeJavaHome = path.dirname(path.dirname(javacPath));\n  184                      if (fs.existsSync(path.join(maybeJavaHome, 'lib', 'tools.jar'))) {\n  185:                         process.env['JAVA_HOME'] = maybeJavaHome;\n  186                      } else {\n  187                          throw new CordovaError(default_java_error_msg);\n  ...\n  203                          process.env['PATH'] += path.delimiter + path.join(firstJdkDir, 'bin');\n  204                      }\n  205:                     process.env['JAVA_HOME'] = firstJdkDir;\n  206                  }\n  207              }\n  ...\n  211              'Failed to run \"javac -version\", make sure that you have a JDK installed.\\n' +\n  212              'You can get it from: http://www.oracle.com/technetwork/java/javase/downloads.\\n';\n  213:         if (process.env['JAVA_HOME']) {\n  214:             msg += 'Your JAVA_HOME is invalid: ' + process.env['JAVA_HOME'] + '\\n';\n  215          }\n  216          // We use tryCommand with catchStderr = true, because\n  ...\n  365      return Q.all([this.check_java(), this.check_android()]).then(function (values) {\n  366          console.log('ANDROID_HOME=' + process.env['ANDROID_HOME']);\n  367:         console.log('JAVA_HOME=' + process.env['JAVA_HOME']);\n  368  \n  369          if (!values[0]) {\n\n49 matches across 5 files\n",
+			"file": "cordova/1/src/pages/index.vue",
 			"settings":
 			{
-				"buffer_size": 8993,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
+				"buffer_size": 211,
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "cordova/1/quasar.conf.js",
+			"file": "cordova/1/src/layouts/default.vue",
 			"settings":
 			{
-				"buffer_size": 3381,
+				"buffer_size": 2274,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -69,6 +68,9 @@
 		"/C/Users/dgmye/Documents/GitHub/Wuala",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/cordova",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/cordova/1",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/cordova/1/src",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/cordova/1/src/layouts",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/cordova/1/src/pages",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/cordova/1/src-cordova",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/cordova/1/src-cordova/platforms"
 	],
@@ -122,15 +124,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1018,
+						"buffer_size": 1071,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								272,
-								272
+								97,
+								97
 							]
 						],
 						"settings":
@@ -148,216 +150,13 @@
 				},
 				{
 					"buffer": 1,
+					"file": "cordova/1/src/pages/index.vue",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8993,
+						"buffer_size": 211,
 						"regions":
 						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										318,
-										327
-									],
-									[
-										486,
-										495
-									],
-									[
-										626,
-										635
-									],
-									[
-										785,
-										794
-									],
-									[
-										849,
-										858
-									],
-									[
-										931,
-										940
-									],
-									[
-										1178,
-										1187
-									],
-									[
-										1532,
-										1541
-									],
-									[
-										1853,
-										1862
-									],
-									[
-										2164,
-										2173
-									],
-									[
-										2211,
-										2220
-									],
-									[
-										2250,
-										2259
-									],
-									[
-										2557,
-										2566
-									],
-									[
-										2584,
-										2593
-									],
-									[
-										2916,
-										2925
-									],
-									[
-										3514,
-										3523
-									],
-									[
-										4176,
-										4185
-									],
-									[
-										4613,
-										4622
-									],
-									[
-										4654,
-										4663
-									],
-									[
-										4788,
-										4797
-									],
-									[
-										4852,
-										4861
-									],
-									[
-										4954,
-										4963
-									],
-									[
-										4997,
-										5006
-									],
-									[
-										5037,
-										5046
-									],
-									[
-										5238,
-										5247
-									],
-									[
-										5340,
-										5349
-									],
-									[
-										5638,
-										5647
-									],
-									[
-										5757,
-										5766
-									],
-									[
-										5869,
-										5878
-									],
-									[
-										6031,
-										6040
-									],
-									[
-										6042,
-										6051
-									],
-									[
-										6077,
-										6086
-									],
-									[
-										6188,
-										6197
-									],
-									[
-										6231,
-										6240
-									],
-									[
-										6282,
-										6291
-									],
-									[
-										6645,
-										6654
-									],
-									[
-										6813,
-										6822
-									],
-									[
-										6953,
-										6962
-									],
-									[
-										7112,
-										7121
-									],
-									[
-										7176,
-										7185
-									],
-									[
-										7258,
-										7267
-									],
-									[
-										7505,
-										7514
-									],
-									[
-										7859,
-										7868
-									],
-									[
-										8180,
-										8189
-									],
-									[
-										8491,
-										8500
-									],
-									[
-										8538,
-										8547
-									],
-									[
-										8577,
-										8586
-									],
-									[
-										8884,
-										8893
-									],
-									[
-										8911,
-										8920
-									]
-								],
-								"scope": ""
-							}
 						},
 						"selection":
 						[
@@ -368,17 +167,10 @@
 						],
 						"settings":
 						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ \t].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1921.33333333,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -386,24 +178,24 @@
 				},
 				{
 					"buffer": 2,
-					"file": "cordova/1/quasar.conf.js",
-					"semi_transient": true,
+					"file": "cordova/1/src/layouts/default.vue",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3381,
+						"buffer_size": 2274,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								440,
+								440
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
