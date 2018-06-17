@@ -8,27 +8,10 @@
 	"buffers":
 	[
 		{
-			"file": "cordova/1/src-cordova/config.xml",
+			"file": "test/1/quasar.conf.js",
 			"settings":
 			{
-				"buffer_size": 1071,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "cordova/1/src/pages/index.vue",
-			"settings":
-			{
-				"buffer_size": 211,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "cordova/1/src/layouts/default.vue",
-			"settings":
-			{
-				"buffer_size": 2274,
-				"encoding": "UTF-8",
+				"buffer_size": 3203,
 				"line_ending": "Unix"
 			}
 		}
@@ -66,16 +49,17 @@
 	"expanded_folders":
 	[
 		"/C/Users/dgmye/Documents/GitHub/Wuala",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/cordova",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/cordova/1",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/cordova/1/src",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/cordova/1/src/layouts",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/cordova/1/src/pages",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/cordova/1/src-cordova",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/cordova/1/src-cordova/platforms"
+		"/C/Users/dgmye/Documents/GitHub/Wuala/test",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/test/1",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/test/1/dist",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/test/1/src"
 	],
 	"file_history":
 	[
+		"/C/Users/dgmye/Documents/GitHub/Wuala/test/1/dist/spa-mat/web.config",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/cordova/1/src-cordova/config.xml",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/cordova/1/src/pages/index.vue",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/cordova/1/src/layouts/default.vue",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/Test.js",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/README.md"
 	],
@@ -115,46 +99,16 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "cordova/1/src-cordova/config.xml",
-					"semi_transient": false,
+					"file": "test/1/quasar.conf.js",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 1071,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								97,
-								97
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "cordova/1/src/pages/index.vue",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 211,
+						"buffer_size": 3203,
 						"regions":
 						{
 						},
@@ -167,35 +121,7 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "cordova/1/src/layouts/default.vue",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2274,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								440,
-								440
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
