@@ -2,8 +2,8 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=wualals.cfqtgrhpbhtg.us-east-2.rds.amazonaws.com;dbname=wualals',
-    'username' => 'wualaAdmin',
+    'dsn' => 'mysql:host=mysql.wualaapp.com;dbname=wuala',
+    'username' => 'wualaadmin',
     'password' => 'keepWorking++',
     'charset' => 'utf8',
 

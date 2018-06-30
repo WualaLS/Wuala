@@ -8,10 +8,18 @@
 	"buffers":
 	[
 		{
-			"file": "dev/wualaapp/1/src/layouts/default.vue",
+			"file": "1/config/web.php",
 			"settings":
 			{
-				"buffer_size": 2273,
+				"buffer_size": 2232,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "1/web/index.php",
+			"settings":
+			{
+				"buffer_size": 367,
 				"line_ending": "Unix"
 			}
 		}
@@ -56,15 +64,12 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/dgmye/Documents/GitHub/Wuala",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/dev",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/layouts"
+		"/C/Users/dgmye/Documents/GitHub/Wuala"
 	],
 	"file_history":
 	[
+		"/C/Users/dgmye/Documents/GitHub/Wuala/1/config/db.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/layouts/default.vue",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/pages/404.vue",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/pages/index.vue",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/test/1/dist/spa-mat/web.config",
@@ -110,31 +115,59 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "dev/wualaapp/1/src/layouts/default.vue",
+					"file": "1/config/web.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2273,
+						"buffer_size": 2232,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								341,
-								341
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Vue Syntax Highlight/Vue Component.sublime-syntax",
-							"tab_size": 2,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 716.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "1/web/index.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 367,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								366,
+								366
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
