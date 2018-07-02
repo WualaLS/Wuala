@@ -7,22 +7,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "1/config/web.php",
-			"settings":
-			{
-				"buffer_size": 2232,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "1/web/index.php",
-			"settings":
-			{
-				"buffer_size": 367,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -35,6 +19,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"package controll in",
+				"Package Control: Install Package"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -64,11 +52,19 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/dgmye/Documents/GitHub/Wuala"
+		"/C/Users/dgmye/Documents/GitHub/Wuala",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/1"
 	],
 	"file_history":
 	[
+		"/C/Users/dgmye/Documents/GitHub/Wuala/sftp-config.json",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/.eslintignore",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/1/config/web.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/1/web/index.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/1/config/console.php",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/1/config/db.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/1/codeception.yml",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/cordova/sftp-config.json",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/layouts/default.vue",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/pages/404.vue",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/pages/index.vue",
@@ -115,67 +111,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "1/config/web.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2232,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 716.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "1/web/index.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 367,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								366,
-								366
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -213,6 +150,10 @@
 	"output.find_results":
 	{
 		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 126.0
 	},
 	"pinned_build_system": "",
 	"project": "wuala.sublime-project",
