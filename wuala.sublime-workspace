@@ -7,6 +7,25 @@
 	},
 	"buffers":
 	[
+		{
+			"contents": "Searching 6547 files for \"session_save_path\"\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\phar-io\\manifest\\tests\\_fixture\\test.phar:\n    <binary>\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\yiisoft\\yii2\\web\\Session.php:\n  135          $this->setCookieParamsInternal();\n  136  \n  137:         session_save_path(\"/tmp\");\n  138  \n  139          YII_DEBUG ? session_start() : @session_start();\n  ...\n  332      /**\n  333       * Gets the current session save path.\n  334:      * This is a wrapper for [PHP session_save_path()](http://php.net/manual/en/function.session-save-path.php).\n  335       * @return string the current session save path, defaults to '/tmp'.\n  336       */\n  337      public function getSavePath()\n  338      {\n  339:         return session_save_path(\"/tmp\");\n  340      }\n  341  \n  342      /**\n  343       * Sets the current session save path.\n  344:      * This is a wrapper for [PHP session_save_path()](http://php.net/manual/en/function.session-save-path.php).\n  345       * @param string $value the current session save path. This can be either a directory name or a [path alias](guide:concept-aliases).\n  346       * @throws InvalidArgumentException if the path is not a valid directory\n  ...\n  350          $path = Yii::getAlias($value);\n  351          if (is_dir($path)) {\n  352:             session_save_path($path);\n  353          } else {\n  354              throw new InvalidArgumentException(\"Session save path is not a valid directory: $value\");\n  ...\n  945          if (null !== $this->frozenSessionData) {\n  946  \n  947:             session_save_path(\"/tmp\");\n  948  \n  949              YII_DEBUG ? session_start() : @session_start();\n\n7 matches across 2 files\n\n\nSearching 6483 files for \"/tmp\"\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\bower-asset\\bootstrap\\grunt\\npm-shrinkwrap.json:\n 2392        \"version\": \"0.0.28\",\n 2393        \"from\": \"tmp@>=0.0.28 <0.0.29\",\n 2394:       \"resolved\": \"https://registry.npmjs.org/tmp/-/tmp-0.0.28.tgz\"\n 2395      },\n 2396      \"to-double-quotes\": {\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\bower-asset\\inputmask\\package-lock.json:\n 5164          \"socket.io\": \"https://registry.npmjs.org/socket.io/-/socket.io-1.7.3.tgz\",\n 5165          \"source-map\": \"https://registry.npmjs.org/source-map/-/source-map-0.5.6.tgz\",\n 5166:         \"tmp\": \"https://registry.npmjs.org/tmp/-/tmp-0.0.31.tgz\",\n 5167          \"useragent\": \"https://registry.npmjs.org/useragent/-/useragent-2.1.13.tgz\"\n 5168        },\n ....\n 7994      },\n 7995      \"tmp\": {\n 7996:       \"version\": \"https://registry.npmjs.org/tmp/-/tmp-0.0.31.tgz\",\n 7997        \"integrity\": \"sha1-jzirlDjhcxXl29izZX6L+yd65Kc=\",\n 7998        \"dev\": true,\n ....\n 8175        \"requires\": {\n 8176          \"lru-cache\": \"https://registry.npmjs.org/lru-cache/-/lru-cache-2.2.4.tgz\",\n 8177:         \"tmp\": \"https://registry.npmjs.org/tmp/-/tmp-0.0.31.tgz\"\n 8178        },\n 8179        \"dependencies\": {\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\bower-asset\\jquery\\README.md:\n   54  ```\n   55  \n   56: For jQuery to work in Node, a window with a document is required. Since no such window exists natively in Node, one can be mocked by tools such as [jsdom](https://github.com/tmpvar/jsdom). This can be useful for testing purposes.\n   57  \n   58  ```js\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\codeception\\base\\Dockerfile:\n   11          --no-install-recommends && \\\n   12          apt-get clean && \\\n   13:         rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*\n   14  \n   15  # Install php extensions\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\codeception\\base\\src\\Codeception\\Lib\\Connector\\Shared\\PhpSuperGlobalsConverter.php:\n   75                  foreach ($inner as $innerName => $innerInfo) {\n   76                      /**\n   77:                      * Convert from ['a' => ['tmp_name' => '/tmp/test.txt'] ]\n   78:                      * to ['tmp_name' => ['a' => '/tmp/test.txt'] ]\n   79                       */\n   80                      $innerInfo = array_map(\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\codeception\\base\\tests\\unit\\Codeception\\Module\\PhpBrowserRestTest.php:\n  236      public function testFileUploadWithKeyValueArray()\n  237      {\n  238:         $tmpFileName = tempnam('/tmp', 'test_');\n  239          file_put_contents($tmpFileName, 'test data');\n  240          $files = [\n  ...\n  249      public function testFileUploadWithFilesArray()\n  250      {\n  251:         $tmpFileName = tempnam('/tmp', 'test_');\n  252          file_put_contents($tmpFileName, 'test data');\n  253          $files = [\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\ezyang\\htmlpurifier\\library\\HTMLPurifier\\URIScheme\\data.php:\n   90              $file = tempnam(sys_get_temp_dir(), \"\");\n   91          } else {\n   92:             $file = tempnam(\"/tmp\", \"\");\n   93          }\n   94          file_put_contents($file, $raw_data);\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\ezyang\\htmlpurifier\\NEWS:\n   95    allowed.\n   96  - Minor bounds error fix to squash a PHP 7 notice.\n   97: - Support non-/tmp temporary directories for data:// validation\n   98  - Give a better error message when a user attempts to allow\n   99    ul/ol without allowing li.\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\fzaninotto\\faker\\readme.md:\n  255      mimeType               // 'video/x-msvideo'\n  256      // Copy a random file from the source to the target directory and returns the fullpath or filename\n  257:     file($sourceDir = '/tmp', $targetDir = '/tmp') // '/path/to/targetDir/13b73edae8443990be1aa8f1a483bc27.jpg'\n  258      file($sourceDir, $targetDir, false) // '13b73edae8443990be1aa8f1a483bc27.jpg'\n  259  \n  ...\n  265      imageUrl($width, $height, 'cats', true, 'Faker') // 'http://lorempixel.com/800/400/cats/Faker'\n  266      imageUrl($width, $height, 'cats', true, 'Faker', true) // 'http://lorempixel.com/grey/800/400/cats/Faker/' Monochrome image\n  267:     image($dir = '/tmp', $width = 640, $height = 480) // '/tmp/13b73edae8443990be1aa8f1a483bc27.jpg'\n  268      image($dir, $width, $height, 'cats')  // 'tmp/13b73edae8443990be1aa8f1a483bc27.jpg' it's a cat!\n  269      image($dir, $width, $height, 'cats', false) // '13b73edae8443990be1aa8f1a483bc27.jpg' it's a filename without path\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\fzaninotto\\faker\\src\\Faker\\Generator.php:\n  174   * @property string $mimeType\n  175   * @property string $fileExtension\n  176:  * @method string file($sourceDirectory = '/tmp', $targetDirectory = '/tmp', $fullPath = true)\n  177   *\n  178   * @method string imageUrl($width = 640, $height = 480, $category = null, $randomize = true, $word = null, $gray = false)\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\fzaninotto\\faker\\src\\Faker\\Provider\\File.php:\n  570       * @return string\n  571       */\n  572:     public static function file($sourceDirectory = '/tmp', $targetDirectory = '/tmp', $fullPath = true)\n  573      {\n  574          if (!is_dir($sourceDirectory)) {\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\guzzlehttp\\psr7\\README.md:\n  168  use GuzzleHttp\\Psr7;\n  169  \n  170: $original = Psr7\\stream_for(fopen('/tmp/test.txt', 'r+'));\n  171  echo $original->getSize();\n  172  // >>> 1048576\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\phar-io\\manifest\\tests\\_fixture\\test.phar:\n    <binary>\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\phar-io\\manifest\\tests\\ManifestSerializerTest.php:\n   81      public function testCanSerializeToFile() {\n   82          $src        = __DIR__ . '/_fixture/library.xml';\n   83:         $dest       = '/tmp/' . uniqid('serializer', true);\n   84          $manifest   = ManifestLoader::fromFile($src);\n   85          $serializer = new ManifestSerializer();\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\phpunit\\php-code-coverage\\.gitignore:\n    1: /tests/_files/tmp\n    2  /vendor\n    3  /composer.lock\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\phpunit\\php-code-coverage\\README.md:\n   33  \n   34  $writer = new \\SebastianBergmann\\CodeCoverage\\Report\\Clover;\n   35: $writer->process($coverage, '/tmp/clover.xml');\n   36  \n   37  $writer = new \\SebastianBergmann\\CodeCoverage\\Report\\Html\\Facade;\n   38: $writer->process($coverage, '/tmp/code-coverage-report');\n   39  ```\n   40  \n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\phpunit\\phpunit\\src\\Util\\Configuration.php:\n  121   *\n  122   *   <logging>\n  123:  *     <log type=\"coverage-html\" target=\"/tmp/report\" lowUpperBound=\"50\" highLowerBound=\"90\"/>\n  124:  *     <log type=\"coverage-clover\" target=\"/tmp/clover.xml\"/>\n  125:  *     <log type=\"coverage-crap4j\" target=\"/tmp/crap.xml\" threshold=\"30\"/>\n  126:  *     <log type=\"plain\" target=\"/tmp/logfile.txt\"/>\n  127:  *     <log type=\"teamcity\" target=\"/tmp/logfile.txt\"/>\n  128:  *     <log type=\"junit\" target=\"/tmp/logfile.xml\"/>\n  129:  *     <log type=\"testdox-html\" target=\"/tmp/testdox.html\"/>\n  130:  *     <log type=\"testdox-text\" target=\"/tmp/testdox.txt\"/>\n  131:  *     <log type=\"testdox-xml\" target=\"/tmp/testdox.xml\"/>\n  132   *   </logging>\n  133   *\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\phpunit\\phpunit\\tests\\_files\\configuration.xml:\n   16           failOnWarning=\"false\"\n   17           failOnRisky=\"false\"\n   18:          extensionsDirectory=\"/tmp\"\n   19           printerClass=\"PHPUnit\\TextUI\\ResultPrinter\"\n   20           testSuiteLoaderClass=\"PHPUnit\\Runner\\StandardTestSuiteLoader\"\n   ..\n   98  \n   99      <logging>\n  100:         <log type=\"coverage-html\" target=\"/tmp/report\" lowUpperBound=\"50\" highLowerBound=\"90\"/>\n  101:         <log type=\"coverage-clover\" target=\"/tmp/clover.xml\"/>\n  102:         <log type=\"coverage-crap4j\" threshold=\"50\" target=\"/tmp/crap4j.xml\"/>\n  103:         <log type=\"coverage-text\" showUncoveredFiles=\"true\" showOnlySummary=\"true\" target=\"/tmp/coverage.txt\"/>\n  104:         <log type=\"json\" target=\"/tmp/logfile.json\"/>\n  105:         <log type=\"plain\" target=\"/tmp/logfile.txt\"/>\n  106:         <log type=\"tap\" target=\"/tmp/logfile.tap\"/>\n  107:         <log type=\"junit\" target=\"/tmp/logfile.xml\"/>\n  108:         <log type=\"testdox-html\" target=\"/tmp/testdox.html\"/>\n  109:         <log type=\"testdox-text\" target=\"/tmp/testdox.txt\"/>\n  110:         <log type=\"testdox-xml\" target=\"/tmp/testdox.xml\"/>\n  111      </logging>\n  112  \n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\phpunit\\phpunit\\tests\\_files\\configuration_xinclude.xml:\n   17           failOnWarning=\"false\"\n   18           failOnRisky=\"false\"\n   19:          extensionsDirectory=\"/tmp\"\n   20           printerClass=\"PHPUnit\\TextUI\\ResultPrinter\"\n   21           testSuiteLoaderClass=\"PHPUnit\\Runner\\StandardTestSuiteLoader\"\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\phpunit\\phpunit\\tests\\Runner\\PhptTestCaseTest.php:\n  184      public function testShouldRunCleanSectionWhenDefined(): void\n  185      {\n  186:         $cleanSection = '<?php unlink(\"/tmp/something\"); ?>' . PHP_EOL;\n  187  \n  188          $phptContent = self::EXPECT_CONTENT . PHP_EOL;\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\phpunit\\phpunit\\tests\\Util\\ConfigurationTest.php:\n  209                  'lowUpperBound'                  => '50',\n  210                  'highLowerBound'                 => '90',\n  211:                 'coverage-html'                  => '/tmp/report',\n  212:                 'coverage-clover'                => '/tmp/clover.xml',\n  213:                 'coverage-crap4j'                => '/tmp/crap4j.xml',\n  214                  'crap4jThreshold'                => 50,\n  215:                 'coverage-text'                  => '/tmp/coverage.txt',\n  216                  'coverageTextShowUncoveredFiles' => true,\n  217                  'coverageTextShowOnlySummary'    => true,\n  218:                 'json'                           => '/tmp/logfile.json',\n  219:                 'plain'                          => '/tmp/logfile.txt',\n  220:                 'tap'                            => '/tmp/logfile.tap',\n  221:                 'junit'                          => '/tmp/logfile.xml',\n  222:                 'testdox-html'                   => '/tmp/testdox.html',\n  223:                 'testdox-text'                   => '/tmp/testdox.txt',\n  224:                 'testdox-xml'                    => '/tmp/testdox.xml'\n  225              ],\n  226              $this->configuration->getLoggingConfiguration()\n  ...\n  353                  'disallowTestOutput'                         => false,\n  354                  'enforceTimeLimit'                           => false,\n  355:                 'extensionsDirectory'                        => '/tmp',\n  356                  'printerClass'                               => 'PHPUnit\\TextUI\\ResultPrinter',\n  357                  'testSuiteLoaderClass'                       => 'PHPUnit\\Runner\\StandardTestSuiteLoader',\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\swiftmailer\\swiftmailer\\lib\\dependency_maps\\cache_deps.php:\n    6  \n    7      ->register('tempdir')\n    8:     ->asValue('/tmp')\n    9  \n   10      ->register('cache.null')\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\swiftmailer\\swiftmailer\\tests\\unit\\Swift\\Transport\\MailTransportTest.php:\n  202              ->zeroOrMoreTimes()\n  203              ->andReturn(\n  204:                 '\"attacker\\\" -oQ/tmp/ -X/var/www/cache/phpcode.php \"@email.com'\n  205              );\n  206          $message->shouldReceive('getSender')\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\yiisoft\\yii2-gii\\src\\generators\\extension\\Generator.php:\n   30      public $title;\n   31      public $description;\n   32:     public $outputPath = \"@app/runtime/tmp-extensions\";\n   33      public $license;\n   34      public $authorName;\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1\\vendor\\yiisoft\\yii2\\BaseYii.php:\n  207       * be removed. Trailing '/' and '\\' characters will be trimmed. This can be\n  208       *\n  209:      * - a directory or a file path (e.g. `/tmp`, `/tmp/main.txt`)\n  210       * - a URL (e.g. `http://www.yiiframework.com`)\n  211       * - a path alias (e.g. `@yii/base`). In this case, the path alias will be converted into the\n\n71 matches across 25 files\n\n\nSearching 6536 files for \"session_save_path\"\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\2\\vendor\\phar-io\\manifest\\tests\\_fixture\\test.phar:\n    <binary>\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\2\\vendor\\yiisoft\\yii2\\web\\Session.php:\n  330      /**\n  331       * Gets the current session save path.\n  332:      * This is a wrapper for [PHP session_save_path()](http://php.net/manual/en/function.session-save-path.php).\n  333       * @return string the current session save path, defaults to '/tmp'.\n  334       */\n  335      public function getSavePath()\n  336      {\n  337:         return session_save_path();\n  338      }\n  339  \n  340      /**\n  341       * Sets the current session save path.\n  342:      * This is a wrapper for [PHP session_save_path()](http://php.net/manual/en/function.session-save-path.php).\n  343       * @param string $value the current session save path. This can be either a directory name or a [path alias](guide:concept-aliases).\n  344       * @throws InvalidArgumentException if the path is not a valid directory\n  ...\n  348          $path = Yii::getAlias($value);\n  349          if (is_dir($path)) {\n  350:             session_save_path($path);\n  351          } else {\n  352              throw new InvalidArgumentException(\"Session save path is not a valid directory: $value\");\n\n5 matches across 2 files\n\n\nSearching 6536 files for \"session_save_path\"\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\3\\vendor\\phar-io\\manifest\\tests\\_fixture\\test.phar:\n    <binary>\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\3\\vendor\\yiisoft\\yii2\\web\\Session.php:\n  330      /**\n  331       * Gets the current session save path.\n  332:      * This is a wrapper for [PHP session_save_path()](http://php.net/manual/en/function.session-save-path.php).\n  333       * @return string the current session save path, defaults to '/tmp'.\n  334       */\n  335      public function getSavePath()\n  336      {\n  337:         return session_save_path();\n  338      }\n  339  \n  340      /**\n  341       * Sets the current session save path.\n  342:      * This is a wrapper for [PHP session_save_path()](http://php.net/manual/en/function.session-save-path.php).\n  343       * @param string $value the current session save path. This can be either a directory name or a [path alias](guide:concept-aliases).\n  344       * @throws InvalidArgumentException if the path is not a valid directory\n  ...\n  348          $path = Yii::getAlias($value);\n  349          if (is_dir($path)) {\n  350:             session_save_path($path);\n  351          } else {\n  352              throw new InvalidArgumentException(\"Session save path is not a valid directory: $value\");\n\n5 matches across 2 files\n",
+			"settings":
+			{
+				"buffer_size": 16762,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "3/vendor/yiisoft/yii2/web/Session.php",
+			"settings":
+			{
+				"buffer_size": 34587,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -53,16 +72,26 @@
 	"expanded_folders":
 	[
 		"/C/Users/dgmye/Documents/GitHub/Wuala",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/1"
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3"
 	],
 	"file_history":
 	[
-		"/C/Users/dgmye/Documents/GitHub/Wuala/sftp-config.json",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/.eslintignore",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/2/vendor/yiisoft/yii2/web/Session.php",
+		"/C/Users/dgmye/AppData/Roaming/Sublime Text 3/Packages/User/SFTP.errors.log",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/1/vendor/yiisoft/yii2/web/Session.php",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/1/config/web.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/1/.htaccess",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/1/config/db.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/sftp-config.json",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/1/models/Customers.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/1/models/CustomersSearch.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/1/controllers/CustomersController.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/1/web/,htaccess",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/1/config/test.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/1/vendor/yiisoft/yii2/web/UrlManager.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/.eslintignore",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/1/web/index.php",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/1/config/console.php",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/1/config/db.php",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/1/codeception.yml",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/cordova/sftp-config.json",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/layouts/default.vue",
@@ -77,13 +106,16 @@
 	],
 	"find":
 	{
-		"height": 27.0
+		"height": 40.0
 	},
 	"find_in_files":
 	{
 		"height": 104.0,
 		"where_history":
 		[
+			"C:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\3",
+			"C:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\2",
+			"C:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\1",
 			"C:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\cordova\\1"
 		]
 	},
@@ -92,6 +124,23 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"session_save_path",
+			"/tmp",
+			"session_save_path",
+			"session_save_path();",
+			"session_st",
+			"session_start",
+			"session_save_path",
+			"session.save_path",
+			"session_start",
+			"session_save_path",
+			"session.save_path",
+			"session_save_path",
+			"AllowOverride",
+			"url",
+			"db",
+			"enablePrettyUrl",
+			"showScriptName",
 			"JAVA_HOME",
 			"company"
 		],
@@ -111,8 +160,421 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16762,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										299,
+										316
+									],
+									[
+										509,
+										526
+									],
+									[
+										759,
+										776
+									],
+									[
+										913,
+										930
+									],
+									[
+										1327,
+										1344
+									],
+									[
+										1575,
+										1592
+									],
+									[
+										1965,
+										1969
+									],
+									[
+										1971,
+										1975
+									],
+									[
+										2356,
+										2360
+									],
+									[
+										2362,
+										2366
+									],
+									[
+										2577,
+										2581
+									],
+									[
+										2583,
+										2587
+									],
+									[
+										2862,
+										2866
+									],
+									[
+										2868,
+										2872
+									],
+									[
+										3209,
+										3213
+									],
+									[
+										3485,
+										3489
+									],
+									[
+										3496,
+										3500
+									],
+									[
+										3843,
+										3847
+									],
+									[
+										3918,
+										3922
+									],
+									[
+										4250,
+										4254
+									],
+									[
+										4470,
+										4474
+									],
+									[
+										4803,
+										4807
+									],
+									[
+										5055,
+										5059
+									],
+									[
+										5479,
+										5483
+									],
+									[
+										5500,
+										5504
+									],
+									[
+										5937,
+										5941
+									],
+									[
+										5977,
+										5981
+									],
+									[
+										6472,
+										6476
+									],
+									[
+										6499,
+										6503
+									],
+									[
+										6860,
+										6864
+									],
+									[
+										6887,
+										6891
+									],
+									[
+										7126,
+										7130
+									],
+									[
+										7557,
+										7561
+									],
+									[
+										7816,
+										7820
+									],
+									[
+										8055,
+										8059
+									],
+									[
+										8191,
+										8195
+									],
+									[
+										8411,
+										8415
+									],
+									[
+										8515,
+										8519
+									],
+									[
+										8584,
+										8588
+									],
+									[
+										8656,
+										8660
+									],
+									[
+										8719,
+										8723
+									],
+									[
+										8779,
+										8783
+									],
+									[
+										8846,
+										8850
+									],
+									[
+										8914,
+										8918
+									],
+									[
+										8980,
+										8984
+									],
+									[
+										9240,
+										9244
+									],
+									[
+										9468,
+										9472
+									],
+									[
+										9573,
+										9577
+									],
+									[
+										9658,
+										9662
+									],
+									[
+										9775,
+										9779
+									],
+									[
+										9836,
+										9840
+									],
+									[
+										9898,
+										9902
+									],
+									[
+										9957,
+										9961
+									],
+									[
+										10018,
+										10022
+									],
+									[
+										10086,
+										10090
+									],
+									[
+										10155,
+										10159
+									],
+									[
+										10222,
+										10226
+									],
+									[
+										10488,
+										10492
+									],
+									[
+										10862,
+										10866
+									],
+									[
+										11253,
+										11257
+									],
+									[
+										11327,
+										11331
+									],
+									[
+										11405,
+										11409
+									],
+									[
+										11546,
+										11550
+									],
+									[
+										11756,
+										11760
+									],
+									[
+										11836,
+										11840
+									],
+									[
+										11915,
+										11919
+									],
+									[
+										11994,
+										11998
+									],
+									[
+										12073,
+										12077
+									],
+									[
+										12153,
+										12157
+									],
+									[
+										12232,
+										12236
+									],
+									[
+										12573,
+										12577
+									],
+									[
+										12967,
+										12971
+									],
+									[
+										13250,
+										13254
+									],
+									[
+										13580,
+										13584
+									],
+									[
+										13882,
+										13886
+									],
+									[
+										13890,
+										13894
+									],
+									[
+										14433,
+										14450
+									],
+									[
+										14683,
+										14700
+									],
+									[
+										14831,
+										14848
+									],
+									[
+										15245,
+										15262
+									],
+									[
+										15765,
+										15782
+									],
+									[
+										16015,
+										16032
+									],
+									[
+										16163,
+										16180
+									],
+									[
+										16577,
+										16594
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								15771,
+								15771
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"incomplete_sync": null,
+							"line_numbers": false,
+							"output_tag": 4,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 5886.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "3/vendor/yiisoft/yii2/web/Session.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 34587,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								33640,
+								33640
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 16841.3333333,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -197,7 +659,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 220.0,
+	"side_bar_width": 360.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
