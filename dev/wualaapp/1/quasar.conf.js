@@ -4,7 +4,8 @@ module.exports = function (ctx) {
   return {
     // app plugins (/src/plugins)
     plugins: [
-      'axios'
+      'axios',
+      'qs'
     ],
     css: [
       'app.styl'
@@ -31,6 +32,9 @@ module.exports = function (ctx) {
           loader: 'eslint-loader',
           exclude: /(node_modules|quasar)/
         })
+      },
+      env: {
+        serverPath: JSON.stringify('https://www.wualaapp.com/3')
       }
     },
     devServer: {
@@ -54,7 +58,9 @@ module.exports = function (ctx) {
         'QListHeader',
         'QItem',
         'QItemMain',
-        'QItemSide'
+        'QItemSide',
+        'QField',
+        'QInput'
       ],
       directives: [
         'Ripple'

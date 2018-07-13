@@ -2,9 +2,9 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=yii2basic',
-    'username' => 'root',
-    'password' => '',
+    'dsn' => 'mysql:host=mysql.wualaapp.com;dbname=wuala',
+    'username' => 'wualaadmin',
+    'password' => 'hugeMu$ic63',
     'charset' => 'utf8',
 
     // Schema cache options (for production environment)
