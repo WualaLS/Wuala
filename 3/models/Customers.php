@@ -8,7 +8,8 @@ use Yii;
  * This is the model class for table "customers".
  *
  * @property int $customers_id
- * @property string $customers_name
+ * @property string $customers_first_name
+ * @property string $customers_last_name
  * @property string $customers_address
  * @property string $customers_city
  * @property string $customers_state
@@ -17,6 +18,7 @@ use Yii;
  * @property string $customers_password
  * @property string $customers_email
  * @property string $customers_birthday
+ * @property int $customers_washer 0 = No 1 = Yes
  */
 class Customers extends \yii\db\ActiveRecord
 {
@@ -35,8 +37,9 @@ class Customers extends \yii\db\ActiveRecord
     {
         return [
             [['customers_id'], 'required'],
-            [['customers_id'], 'integer'],
-            [['customers_name', 'customers_address', 'customers_city', 'customers_state', 'customers_zip', 'customers_username', 'customers_password', 'customers_email', 'customers_birthday'], 'string', 'max' => 45],
+            [['customers_id', 'customers_washer'], 'integer'],
+            [['customers_birthday'], 'safe'],
+            [['customers_first_name', 'customers_last_name', 'customers_address', 'customers_city', 'customers_state', 'customers_zip', 'customers_username', 'customers_password', 'customers_email'], 'string', 'max' => 45],
             [['customers_id'], 'unique'],
         ];
     }
@@ -48,7 +51,8 @@ class Customers extends \yii\db\ActiveRecord
     {
         return [
             'customers_id' => 'Customers ID',
-            'customers_name' => 'Customers Name',
+            'customers_first_name' => 'Customers First Name',
+            'customers_last_name' => 'Customers Last Name',
             'customers_address' => 'Customers Address',
             'customers_city' => 'Customers City',
             'customers_state' => 'Customers State',
@@ -57,6 +61,7 @@ class Customers extends \yii\db\ActiveRecord
             'customers_password' => 'Customers Password',
             'customers_email' => 'Customers Email',
             'customers_birthday' => 'Customers Birthday',
+            'customers_washer' => 'Customers Washer',
         ];
     }
 }

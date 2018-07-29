@@ -1,10 +1,9 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-layout-header>
+    <q-layout-header reveal>
       <q-toolbar
         color="primary"
-        :glossy="$q.theme === 'mat'"
-        :inverted="$q.theme === 'ios'"
+        glossy
       >
         <q-toolbar-title>
           Wuala

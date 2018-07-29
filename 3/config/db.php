@@ -4,7 +4,7 @@ return [
     'class' => 'yii\db\Connection',
     'dsn' => 'mysql:host=mysql.wualaapp.com;dbname=wuala',
     'username' => 'wualaadmin',
-    'password' => 'hugeMu$ic63',
+    'password' => 'jollyS!gn36',
     'charset' => 'utf8',
 
     // Schema cache options (for production environment)

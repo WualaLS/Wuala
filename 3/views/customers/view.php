@@ -29,7 +29,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'customers_id',
-            'customers_name',
+            'customers_first_name',
+            'customers_last_name',
             'customers_address',
             'customers_city',
             'customers_state',
@@ -38,6 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'customers_password',
             'customers_email:email',
             'customers_birthday',
+            'customers_washer',
         ],
     ]) ?>
 

@@ -12,48 +12,20 @@
 	"buffers":
 	[
 		{
-			"file": "3/config/web.php",
+			"file": "dev/wualaapp/1/src/pages/NewAccount.vue",
 			"settings":
 			{
-				"buffer_size": 2226,
+				"buffer_size": 1484,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "dev/wualaapp/1/quasar.conf.js",
 			"settings":
 			{
-				"buffer_size": 3530,
+				"buffer_size": 3658,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "dev/wualaapp/1/src/plugins/qs.js",
-			"settings":
-			{
-				"buffer_size": 78,
-				"encoding": "UTF-8",
-				"line_ending": "Windows",
-				"name": "qs.js"
-			}
-		},
-		{
-			"file": "3/controllers/WualaContoller.php",
-			"settings":
-			{
-				"buffer_size": 1191,
-				"encoding": "UTF-8",
-				"line_ending": "Windows",
-				"name": "WualaApiContoller.php"
-			}
-		},
-		{
-			"file": "3/controllers/SiteController.php",
-			"settings":
-			{
-				"buffer_size": 2722,
 				"line_ending": "Unix"
 			}
 		},
@@ -61,54 +33,76 @@
 			"file": "3/controllers/CustomersController.php",
 			"settings":
 			{
-				"buffer_size": 3459,
+				"buffer_size": 3463,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "3/config/db.php",
+			"file": "3/controllers/WualaContoller.php",
 			"settings":
 			{
-				"buffer_size": 364,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"buffer_size": 684,
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "dev/wualaapp/1/src/pages/NewAccount.vue",
+			"file": "dev/wualaapp/1/src/pages/LogIn.vue",
 			"settings":
 			{
-				"buffer_size": 353,
+				"buffer_size": 1042,
 				"encoding": "UTF-8",
 				"line_ending": "Windows",
-				"name": "NewAccount.vue"
+				"name": "LogIn.vue"
 			}
 		},
 		{
-			"contents": "Searching 6546 files for \"customers\"\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\3\\controllers\\CustomersController.php:\n    4  \n    5  use Yii;\n    6: use app\\models\\Customers;\n    7: use app\\models\\CustomersSearch;\n    8  use yii\\web\\Controller;\n    9  use yii\\web\\NotFoundHttpException;\n   ..\n   11  \n   12  /**\n   13:  * CustomersController implements the CRUD actions for Customers model.\n   14   */\n   15: class CustomersController extends Controller\n   16  {\n   17      /**\n   ..\n   31  \n   32      /**\n   33:      * Lists all Customers models.\n   34       * @return mixed\n   35       */\n   36      public function actionIndex()\n   37      {\n   38:         $searchModel = new CustomersSearch();\n   39          $dataProvider = $searchModel->search(Yii::$app->request->queryParams);\n   40  \n   ..\n   46  \n   47      /**\n   48:      * Displays a single Customers model.\n   49       * @param integer $id\n   50       * @return mixed\n   ..\n   59  \n   60      /**\n   61:      * Creates a new Customers model.\n   62       * If creation is successful, the browser will be redirected to the 'view' page.\n   63       * @return mixed\n   ..\n   65      public function actionCreate()\n   66      {\n   67:         $model = new Customers();\n   68  \n   69          if ($model->load(Yii::$app->request->post()) && $model->save()) {\n   70:             return $this->redirect(['view', 'id' => $model->customers_id]);\n   71          }\n   72  \n   ..\n   77  \n   78      /**\n   79:      * Updates an existing Customers model.\n   80       * If update is successful, the browser will be redirected to the 'view' page.\n   81       * @param integer $id\n   ..\n   88  \n   89          if ($model->load(Yii::$app->request->post()) && $model->save()) {\n   90:             return $this->redirect(['view', 'id' => $model->customers_id]);\n   91          }\n   92  \n   ..\n   97  \n   98      /**\n   99:      * Deletes an existing Customers model.\n  100       * If deletion is successful, the browser will be redirected to the 'index' page.\n  101       * @param integer $id\n  ...\n  111  \n  112      /**\n  113:      * Finds the Customers model based on its primary key value.\n  114       * If the model is not found, a 404 HTTP exception will be thrown.\n  115       * @param integer $id\n  116:      * @return Customers the loaded model\n  117       * @throws NotFoundHttpException if the model cannot be found\n  118       */\n  119      protected function findModel($id)\n  120      {\n  121:         if (($model = Customers::findOne($id)) !== null) {\n  122              return $model;\n  123          }\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\3\\models\\Customers.php:\n    6  \n    7  /**\n    8:  * This is the model class for table \"customers\".\n    9   *\n   10:  * @property int $customers_id\n   11:  * @property string $customers_name\n   12:  * @property string $customers_address\n   13:  * @property string $customers_city\n   14:  * @property string $customers_state\n   15:  * @property string $customers_zip\n   16:  * @property string $customers_username\n   17:  * @property string $customers_password\n   18:  * @property string $customers_email\n   19:  * @property string $customers_birthday\n   20   */\n   21: class Customers extends \\yii\\db\\ActiveRecord\n   22  {\n   23      /**\n   ..\n   26      public static function tableName()\n   27      {\n   28:         return 'customers';\n   29      }\n   30  \n   ..\n   35      {\n   36          return [\n   37:             [['customers_id'], 'required'],\n   38:             [['customers_id'], 'integer'],\n   39:             [['customers_name', 'customers_address', 'customers_city', 'customers_state', 'customers_zip', 'customers_username', 'customers_password', 'customers_email', 'customers_birthday'], 'string', 'max' => 45],\n   40:             [['customers_id'], 'unique'],\n   41          ];\n   42      }\n   ..\n   48      {\n   49          return [\n   50:             'customers_id' => 'Customers ID',\n   51:             'customers_name' => 'Customers Name',\n   52:             'customers_address' => 'Customers Address',\n   53:             'customers_city' => 'Customers City',\n   54:             'customers_state' => 'Customers State',\n   55:             'customers_zip' => 'Customers Zip',\n   56:             'customers_username' => 'Customers Username',\n   57:             'customers_password' => 'Customers Password',\n   58:             'customers_email' => 'Customers Email',\n   59:             'customers_birthday' => 'Customers Birthday',\n   60          ];\n   61      }\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\3\\models\\CustomersSearch.php:\n    6  use yii\\base\\Model;\n    7  use yii\\data\\ActiveDataProvider;\n    8: use app\\models\\Customers;\n    9  \n   10  /**\n   11:  * CustomersSearch represents the model behind the search form of `app\\models\\Customers`.\n   12   */\n   13: class CustomersSearch extends Customers\n   14  {\n   15      /**\n   ..\n   19      {\n   20          return [\n   21:             [['customers_id'], 'integer'],\n   22:             [['customers_name', 'customers_address', 'customers_city', 'customers_state', 'customers_zip', 'customers_username', 'customers_password', 'customers_email', 'customers_birthday'], 'safe'],\n   23          ];\n   24      }\n   ..\n   42      public function search($params)\n   43      {\n   44:         $query = Customers::find();\n   45  \n   46          // add conditions that should always apply here\n   ..\n   60          // grid filtering conditions\n   61          $query->andFilterWhere([\n   62:             'customers_id' => $this->customers_id,\n   63          ]);\n   64  \n   65:         $query->andFilterWhere(['like', 'customers_name', $this->customers_name])\n   66:             ->andFilterWhere(['like', 'customers_address', $this->customers_address])\n   67:             ->andFilterWhere(['like', 'customers_city', $this->customers_city])\n   68:             ->andFilterWhere(['like', 'customers_state', $this->customers_state])\n   69:             ->andFilterWhere(['like', 'customers_zip', $this->customers_zip])\n   70:             ->andFilterWhere(['like', 'customers_username', $this->customers_username])\n   71:             ->andFilterWhere(['like', 'customers_password', $this->customers_password])\n   72:             ->andFilterWhere(['like', 'customers_email', $this->customers_email])\n   73:             ->andFilterWhere(['like', 'customers_birthday', $this->customers_birthday]);\n   74  \n   75          return $dataProvider;\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\3\\vendor\\symfony\\yaml\\Tests\\Fixtures\\YtsSpecificationExamples.yml:\n  991      # This does not effect '^customer' below\n  992      # because it is does not specify a prefix.\n  993:     customers: !seq\n  994        # '^customer' is shorthand for the full\n  995        # notation 'tag:domain.tld,2002:customer'.\n  ...\n 1008    }\n 1009  ruby: |\n 1010:   { \"invoice\"=> { \"customers\"=> [ { \"given\"=>\"Chris\", \"type\"=>\"domain customer\", \"family\"=>\"Dumars\" } ], \"type\"=>\"domain invoice\" } }\n 1011  \n 1012  ---\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\3\\vendor\\yiisoft\\yii2\\db\\ActiveQuery.php:\n   47   *\n   48   * ```php\n   49:  * $customers = Customer::find()->with('orders')->asArray()->all();\n   50   * ```\n   51   *\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\3\\vendor\\yiisoft\\yii2\\db\\ActiveQueryInterface.php:\n   73       *\n   74       * ```php\n   75:      * // find customers together with their orders and country\n   76       * Customer::find()->with('orders', 'country')->all();\n   77:      * // find customers together with their orders and the orders' shipping address\n   78       * Customer::find()->with('orders.address')->all();\n   79:      * // find customers together with their country and orders of status 1\n   80       * Customer::find()->with([\n   81       *     'orders' => function (\\yii\\db\\ActiveQuery $query) {\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\3\\vendor\\yiisoft\\yii2\\db\\ActiveQueryTrait.php:\n   57       *\n   58       * ```php\n   59:      * // find customers together with their orders and country\n   60       * Customer::find()->with('orders', 'country')->all();\n   61:      * // find customers together with their orders and the orders' shipping address\n   62       * Customer::find()->with('orders.address')->all();\n   63:      * // find customers together with their country and orders of status 1\n   64       * Customer::find()->with([\n   65       *     'orders' => function (\\yii\\db\\ActiveQuery $query) {\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\3\\vendor\\yiisoft\\yii2\\db\\ActiveRecord.php:\n  147       *\n  148       * ```php\n  149:      * $customers = Customer::findBySql('SELECT * FROM customer')->all();\n  150       * ```\n  151       *\n  ...\n  246       * Updates the whole table using the provided attribute values and conditions.\n  247       *\n  248:      * For example, to change the status to be 1 for all customers whose status is 2:\n  249       *\n  250       * ```php\n  ...\n  285       * Updates the whole table using the provided counter changes and conditions.\n  286       *\n  287:      * For example, to increment all customers' age by 1,\n  288       *\n  289       * ```php\n  ...\n  317       * Deletes rows in the table using the provided conditions.\n  318       *\n  319:      * For example, to delete all customers whose status is 3:\n  320       *\n  321       * ```php\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\3\\vendor\\yiisoft\\yii2\\db\\ActiveRecordInterface.php:\n  107       * $customer = Customer::find()->where(['id' => 1])->one();\n  108       *\n  109:      * // find all active customers and order them by their age:\n  110:      * $customers = Customer::find()\n  111       *     ->where(['status' => 1])\n  112       *     ->orderBy('age')\n  ...\n  143       * // Use andWhere()/orWhere() to apply the default condition\n  144       * // SELECT FROM customer WHERE `deleted`=:deleted AND age>30\n  145:      * $customers = Customer::find()->andWhere('age>30')->all();\n  146       *\n  147       * // Use where() to ignore the default condition\n  148       * // SELECT FROM customer WHERE age>30\n  149:      * $customers = Customer::find()->where('age>30')->all();\n  150       *\n  151       * @return ActiveQueryInterface the newly created [[ActiveQueryInterface]] instance.\n  ...\n  181       * $customer = Customer::find()->where(['id' => 10])->one();\n  182       *\n  183:      * // find the customers whose primary key value is 10, 11 or 12.\n  184:      * $customers = Customer::findOne([10, 11, 12]);\n  185       *\n  186       * // the above code is equivalent to:\n  187:      * $customers = Customer::find()->where(['id' => [10, 11, 12]])->one();\n  188       *\n  189       * // find the first customer whose age is 30 and whose status is 1\n  ...\n  242       *\n  243       * ```php\n  244:      * // find the customers whose primary key value is 10\n  245:      * $customers = Customer::findAll(10);\n  246       *\n  247       * // the above code is equivalent to:\n  248:      * $customers = Customer::find()->where(['id' => 10])->all();\n  249       *\n  250:      * // find the customers whose primary key value is 10, 11 or 12.\n  251:      * $customers = Customer::findAll([10, 11, 12]);\n  252       *\n  253       * // the above code is equivalent to:\n  254:      * $customers = Customer::find()->where(['id' => [10, 11, 12]])->all();\n  255       *\n  256:      * // find customers whose age is 30 and whose status is 1\n  257:      * $customers = Customer::findAll(['age' => 30, 'status' => 1]);\n  258       *\n  259       * // the above code is equivalent to:\n  260:      * $customers = Customer::find()->where(['age' => 30, 'status' => 1])->all();\n  261       * ```\n  262       *\n  ...\n  287       * Updates records using the provided attribute values and conditions.\n  288       *\n  289:      * For example, to change the status to be 1 for all customers whose status is 2:\n  290       *\n  291       * ```php\n  ...\n  306       * WARNING: If you do not specify any condition, this method will delete ALL rows in the table.\n  307       *\n  308:      * For example, to delete all customers whose status is 3:\n  309       *\n  310       * ```php\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\3\\vendor\\yiisoft\\yii2\\db\\BaseActiveRecord.php:\n  151       * Updates the whole table using the provided attribute values and conditions.\n  152       *\n  153:      * For example, to change the status to be 1 for all customers whose status is 2:\n  154       *\n  155       * ```php\n  ...\n  171       * Updates the whole table using the provided counter changes and conditions.\n  172       *\n  173:      * For example, to increment all customers' age by 1,\n  174       *\n  175       * ```php\n  ...\n  193       * WARNING: If you do not specify any condition, this method will delete ALL rows in the table.\n  194       *\n  195:      * For example, to delete all customers whose status is 3:\n  196       *\n  197       * ```php\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\3\\views\\customers\\_form.php:\n    5  \n    6  /* @var $this yii\\web\\View */\n    7: /* @var $model app\\models\\Customers */\n    8  /* @var $form yii\\widgets\\ActiveForm */\n    9  ?>\n   10  \n   11: <div class=\"customers-form\">\n   12  \n   13      <?php $form = ActiveForm::begin(); ?>\n   14  \n   15:     <?= $form->field($model, 'customers_id')->textInput() ?>\n   16  \n   17:     <?= $form->field($model, 'customers_name')->textInput(['maxlength' => true]) ?>\n   18  \n   19:     <?= $form->field($model, 'customers_address')->textInput(['maxlength' => true]) ?>\n   20  \n   21:     <?= $form->field($model, 'customers_city')->textInput(['maxlength' => true]) ?>\n   22  \n   23:     <?= $form->field($model, 'customers_state')->textInput(['maxlength' => true]) ?>\n   24  \n   25:     <?= $form->field($model, 'customers_zip')->textInput(['maxlength' => true]) ?>\n   26  \n   27:     <?= $form->field($model, 'customers_username')->textInput(['maxlength' => true]) ?>\n   28  \n   29:     <?= $form->field($model, 'customers_password')->textInput(['maxlength' => true]) ?>\n   30  \n   31:     <?= $form->field($model, 'customers_email')->textInput(['maxlength' => true]) ?>\n   32  \n   33:     <?= $form->field($model, 'customers_birthday')->textInput(['maxlength' => true]) ?>\n   34  \n   35      <div class=\"form-group\">\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\3\\views\\customers\\_search.php:\n    5  \n    6  /* @var $this yii\\web\\View */\n    7: /* @var $model app\\models\\CustomersSearch */\n    8  /* @var $form yii\\widgets\\ActiveForm */\n    9  ?>\n   10  \n   11: <div class=\"customers-search\">\n   12  \n   13      <?php $form = ActiveForm::begin([\n   ..\n   16      ]); ?>\n   17  \n   18:     <?= $form->field($model, 'customers_id') ?>\n   19  \n   20:     <?= $form->field($model, 'customers_name') ?>\n   21  \n   22:     <?= $form->field($model, 'customers_address') ?>\n   23  \n   24:     <?= $form->field($model, 'customers_city') ?>\n   25  \n   26:     <?= $form->field($model, 'customers_state') ?>\n   27  \n   28:     <?php // echo $form->field($model, 'customers_zip') ?>\n   29  \n   30:     <?php // echo $form->field($model, 'customers_username') ?>\n   31  \n   32:     <?php // echo $form->field($model, 'customers_password') ?>\n   33  \n   34:     <?php // echo $form->field($model, 'customers_email') ?>\n   35  \n   36:     <?php // echo $form->field($model, 'customers_birthday') ?>\n   37  \n   38      <div class=\"form-group\">\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\3\\views\\customers\\create.php:\n    5  \n    6  /* @var $this yii\\web\\View */\n    7: /* @var $model app\\models\\Customers */\n    8  \n    9: $this->title = 'Create Customers';\n   10: $this->params['breadcrumbs'][] = ['label' => 'Customers', 'url' => ['index']];\n   11  $this->params['breadcrumbs'][] = $this->title;\n   12  ?>\n   13: <div class=\"customers-create\">\n   14  \n   15      <h1><?= Html::encode($this->title) ?></h1>\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\3\\views\\customers\\index.php:\n    5  \n    6  /* @var $this yii\\web\\View */\n    7: /* @var $searchModel app\\models\\CustomersSearch */\n    8  /* @var $dataProvider yii\\data\\ActiveDataProvider */\n    9  \n   10: $this->title = 'Customers';\n   11  $this->params['breadcrumbs'][] = $this->title;\n   12  ?>\n   13: <div class=\"customers-index\">\n   14  \n   15      <h1><?= Html::encode($this->title) ?></h1>\n   ..\n   17  \n   18      <p>\n   19:         <?= Html::a('Create Customers', ['create'], ['class' => 'btn btn-success']) ?>\n   20      </p>\n   21  \n   ..\n   26              ['class' => 'yii\\grid\\SerialColumn'],\n   27  \n   28:             'customers_id',\n   29:             'customers_name',\n   30:             'customers_address',\n   31:             'customers_city',\n   32:             'customers_state',\n   33:             //'customers_zip',\n   34:             //'customers_username',\n   35:             //'customers_password',\n   36:             //'customers_email:email',\n   37:             //'customers_birthday',\n   38  \n   39              ['class' => 'yii\\grid\\ActionColumn'],\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\3\\views\\customers\\update.php:\n    4  \n    5  /* @var $this yii\\web\\View */\n    6: /* @var $model app\\models\\Customers */\n    7  \n    8: $this->title = 'Update Customers: ' . $model->customers_id;\n    9: $this->params['breadcrumbs'][] = ['label' => 'Customers', 'url' => ['index']];\n   10: $this->params['breadcrumbs'][] = ['label' => $model->customers_id, 'url' => ['view', 'id' => $model->customers_id]];\n   11  $this->params['breadcrumbs'][] = 'Update';\n   12  ?>\n   13: <div class=\"customers-update\">\n   14  \n   15      <h1><?= Html::encode($this->title) ?></h1>\n\nC:\\Users\\dgmye\\Documents\\GitHub\\Wuala\\3\\views\\customers\\view.php:\n    5  \n    6  /* @var $this yii\\web\\View */\n    7: /* @var $model app\\models\\Customers */\n    8  \n    9: $this->title = $model->customers_id;\n   10: $this->params['breadcrumbs'][] = ['label' => 'Customers', 'url' => ['index']];\n   11  $this->params['breadcrumbs'][] = $this->title;\n   12  ?>\n   13: <div class=\"customers-view\">\n   14  \n   15      <h1><?= Html::encode($this->title) ?></h1>\n   16  \n   17      <p>\n   18:         <?= Html::a('Update', ['update', 'id' => $model->customers_id], ['class' => 'btn btn-primary']) ?>\n   19:         <?= Html::a('Delete', ['delete', 'id' => $model->customers_id], [\n   20              'class' => 'btn btn-danger',\n   21              'data' => [\n   ..\n   29          'model' => $model,\n   30          'attributes' => [\n   31:             'customers_id',\n   32:             'customers_name',\n   33:             'customers_address',\n   34:             'customers_city',\n   35:             'customers_state',\n   36:             'customers_zip',\n   37:             'customers_username',\n   38:             'customers_password',\n   39:             'customers_email:email',\n   40:             'customers_birthday',\n   41          ],\n   42      ]) ?>\n\n197 matches across 16 files\n",
+			"file": "dev/wualaapp/1/src/App.vue",
 			"settings":
 			{
-				"buffer_size": 18667,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "3/vendor/yiisoft/yii2/web/UrlManager.php",
-			"settings":
-			{
-				"buffer_size": 25873,
+				"buffer_size": 228,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "dev/wualaapp/1/src/pages/index.vue",
+			"file": "dev/wualaapp/1/src/router/routes.js",
 			"settings":
 			{
-				"buffer_size": 211,
+				"buffer_size": 390,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "3/models/UserFirst.php",
+			"settings":
+			{
+				"buffer_size": 2158,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "3/controllers/UserController.php",
+			"settings":
+			{
+				"buffer_size": 3218,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "3/models/UserSearch.php",
+			"settings":
+			{
+				"buffer_size": 3102,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "3/models/User.php",
+			"settings":
+			{
+				"buffer_size": 2893,
 				"line_ending": "Unix"
 			}
 		}
@@ -159,27 +153,50 @@
 	[
 		"/C/Users/dgmye/Documents/GitHub/Wuala",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/3",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/config",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/controllers",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/models",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/views",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/views/layouts",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/views/site",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/dev",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp"
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/layouts",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/pages",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/router"
 	],
 	"file_history":
 	[
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/views/site/login.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/App.vue",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/controllers/CustomersController.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/models/Customers.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/models/CustomersSearch.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/pages/NewAccount.vue",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/quasar.conf.js",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/layouts/default.vue",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/router/routes.js",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/controllers/WualaContoller.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/web/index.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/config/web.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/config/db.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/sftp-config.json",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/1/config/web.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/plugins/qs.js",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/3/controllers/SiteController.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/Vagrantfile",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/vendor/yiisoft/yii2/web/UrlManager.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/pages/index.vue",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/router/routes.js",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/package.json",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/1/config/db.php",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/3/controllers/CustomersController.php",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/3/models/CustomersSearch.php",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/3/models/Customers.php",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/.eslintrc.js",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/3/vendor/yiisoft/yii2/web/Session.php",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/2/vendor/yiisoft/yii2/web/Session.php",
 		"/C/Users/dgmye/AppData/Roaming/Sublime Text 3/Packages/User/SFTP.errors.log",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/1/vendor/yiisoft/yii2/web/Session.php",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/1/config/web.php",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/1/.htaccess",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/sftp-config.json",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/1/models/Customers.php",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/1/models/CustomersSearch.php",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/1/controllers/CustomersController.php",
@@ -192,7 +209,6 @@
 		"/C/Users/dgmye/Documents/GitHub/Wuala/1/codeception.yml",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/cordova/sftp-config.json",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/pages/404.vue",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/pages/index.vue",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/test/1/dist/spa-mat/web.config",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/cordova/1/src-cordova/config.xml",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/cordova/1/src/pages/index.vue",
@@ -220,6 +236,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\t",
+			"name",
+			"gii",
+			"\t",
 			"customers",
 			"enablePrettyUrl",
 			"\t",
@@ -266,19 +286,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "3/config/web.php",
+					"file": "dev/wualaapp/1/src/pages/NewAccount.vue",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2226,
+						"buffer_size": 1484,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								555,
-								555
+								1170,
+								1170
 							]
 						],
 						"settings":
@@ -286,12 +306,12 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
+							"syntax": "Packages/Vue Syntax Highlight/Vue Component.sublime-syntax",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 73.3333333333,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -303,15 +323,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3530,
+						"buffer_size": 3658,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								149,
-								149
+								845,
+								845
 							]
 						],
 						"settings":
@@ -324,88 +344,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 477.0,
+						"translation.y": 39.3333333333,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "dev/wualaapp/1/src/plugins/qs.js",
+					"file": "3/controllers/CustomersController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 78,
+						"buffer_size": 3463,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								54,
-								54
-							]
-						],
-						"settings":
-						{
-							"auto_name": "qs.js",
-							"incomplete_sync": null,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "3/controllers/WualaContoller.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1191,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								171,
-								192
-							]
-						],
-						"settings":
-						{
-							"auto_name": "WualaApiContoller.php",
-							"incomplete_sync": null,
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "3/controllers/SiteController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2722,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								202,
-								202
+								3360,
+								3360
 							]
 						],
 						"settings":
@@ -416,6 +375,70 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1851.33333333,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "3/controllers/WualaContoller.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 684,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								496,
+								496
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "dev/wualaapp/1/src/pages/LogIn.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1042,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								980,
+								980
+							]
+						],
+						"settings":
+						{
+							"auto_name": "LogIn.vue",
+							"incomplete_sync": null,
+							"syntax": "Packages/Vue Syntax Highlight/Vue Component.sublime-syntax",
+							"tab_size": 2
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -426,19 +449,19 @@
 				},
 				{
 					"buffer": 5,
-					"file": "3/controllers/CustomersController.php",
+					"file": "dev/wualaapp/1/src/App.vue",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3459,
+						"buffer_size": 228,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								210,
-								210
+								112,
+								112
 							]
 						],
 						"settings":
@@ -446,9 +469,8 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Vue Syntax Highlight/Vue Component.sublime-syntax",
+							"tab_size": 2
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -459,19 +481,19 @@
 				},
 				{
 					"buffer": 6,
-					"file": "3/config/db.php",
+					"file": "dev/wualaapp/1/src/router/routes.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 364,
+						"buffer_size": 390,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								364,
-								364
+								182,
+								182
 							]
 						],
 						"settings":
@@ -479,892 +501,32 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 7,
-					"file": "dev/wualaapp/1/src/pages/NewAccount.vue",
+					"file": "3/models/UserFirst.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 353,
+						"buffer_size": 2158,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								330,
-								330
-							]
-						],
-						"settings":
-						{
-							"auto_name": "NewAccount.vue",
-							"incomplete_sync": null,
-							"syntax": "Packages/Vue Syntax Highlight/Vue Component.sublime-syntax",
-							"tab_size": 2
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 18667,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										161,
-										170
-									],
-									[
-										194,
-										203
-									],
-									[
-										319,
-										328
-									],
-									[
-										371,
-										380
-									],
-									[
-										412,
-										421
-									],
-									[
-										528,
-										537
-									],
-									[
-										677,
-										686
-									],
-									[
-										851,
-										860
-									],
-									[
-										986,
-										995
-									],
-									[
-										1212,
-										1221
-									],
-									[
-										1381,
-										1390
-									],
-									[
-										1485,
-										1494
-									],
-									[
-										1787,
-										1796
-									],
-									[
-										1891,
-										1900
-									],
-									[
-										2087,
-										2096
-									],
-									[
-										2268,
-										2277
-									],
-									[
-										2470,
-										2479
-									],
-									[
-										2685,
-										2694
-									],
-									[
-										2732,
-										2741
-									],
-									[
-										2773,
-										2782
-									],
-									[
-										2816,
-										2825
-									],
-									[
-										2862,
-										2871
-									],
-									[
-										2905,
-										2914
-									],
-									[
-										2949,
-										2958
-									],
-									[
-										2991,
-										3000
-									],
-									[
-										3038,
-										3047
-									],
-									[
-										3085,
-										3094
-									],
-									[
-										3129,
-										3138
-									],
-									[
-										3172,
-										3181
-									],
-									[
-										3323,
-										3332
-									],
-									[
-										3421,
-										3430
-									],
-									[
-										3472,
-										3481
-									],
-									[
-										3522,
-										3531
-									],
-									[
-										3540,
-										3549
-									],
-									[
-										3561,
-										3570
-									],
-									[
-										3579,
-										3588
-									],
-									[
-										3598,
-										3607
-									],
-									[
-										3615,
-										3624
-									],
-									[
-										3637,
-										3646
-									],
-									[
-										3659,
-										3668
-									],
-									[
-										3678,
-										3687
-									],
-									[
-										3746,
-										3755
-									],
-									[
-										3867,
-										3876
-									],
-									[
-										3885,
-										3894
-									],
-									[
-										3920,
-										3929
-									],
-									[
-										3940,
-										3949
-									],
-									[
-										3977,
-										3986
-									],
-									[
-										4000,
-										4009
-									],
-									[
-										4040,
-										4049
-									],
-									[
-										4060,
-										4069
-									],
-									[
-										4097,
-										4106
-									],
-									[
-										4118,
-										4127
-									],
-									[
-										4156,
-										4165
-									],
-									[
-										4175,
-										4184
-									],
-									[
-										4211,
-										4220
-									],
-									[
-										4235,
-										4244
-									],
-									[
-										4276,
-										4285
-									],
-									[
-										4300,
-										4309
-									],
-									[
-										4341,
-										4350
-									],
-									[
-										4362,
-										4371
-									],
-									[
-										4400,
-										4409
-									],
-									[
-										4424,
-										4433
-									],
-									[
-										4634,
-										4643
-									],
-									[
-										4674,
-										4683
-									],
-									[
-										4749,
-										4758
-									],
-									[
-										4785,
-										4794
-									],
-									[
-										4809,
-										4818
-									],
-									[
-										4908,
-										4917
-									],
-									[
-										4958,
-										4967
-									],
-									[
-										4976,
-										4985
-									],
-									[
-										4997,
-										5006
-									],
-									[
-										5015,
-										5024
-									],
-									[
-										5034,
-										5043
-									],
-									[
-										5051,
-										5060
-									],
-									[
-										5073,
-										5082
-									],
-									[
-										5095,
-										5104
-									],
-									[
-										5114,
-										5123
-									],
-									[
-										5262,
-										5271
-									],
-									[
-										5462,
-										5471
-									],
-									[
-										5486,
-										5495
-									],
-									[
-										5575,
-										5584
-									],
-									[
-										5599,
-										5608
-									],
-									[
-										5662,
-										5671
-									],
-									[
-										5689,
-										5698
-									],
-									[
-										5755,
-										5764
-									],
-									[
-										5779,
-										5788
-									],
-									[
-										5842,
-										5851
-									],
-									[
-										5867,
-										5876
-									],
-									[
-										5931,
-										5940
-									],
-									[
-										5954,
-										5963
-									],
-									[
-										6016,
-										6025
-									],
-									[
-										6044,
-										6053
-									],
-									[
-										6111,
-										6120
-									],
-									[
-										6139,
-										6148
-									],
-									[
-										6206,
-										6215
-									],
-									[
-										6231,
-										6240
-									],
-									[
-										6295,
-										6304
-									],
-									[
-										6323,
-										6332
-									],
-									[
-										6613,
-										6622
-									],
-									[
-										6796,
-										6805
-									],
-									[
-										7049,
-										7058
-									],
-									[
-										7284,
-										7293
-									],
-									[
-										7421,
-										7430
-									],
-									[
-										7576,
-										7585
-									],
-									[
-										7889,
-										7898
-									],
-									[
-										8026,
-										8035
-									],
-									[
-										8181,
-										8190
-									],
-									[
-										8483,
-										8492
-									],
-									[
-										8755,
-										8764
-									],
-									[
-										8972,
-										8981
-									],
-									[
-										9160,
-										9169
-									],
-									[
-										9433,
-										9442
-									],
-									[
-										9487,
-										9496
-									],
-									[
-										9762,
-										9771
-									],
-									[
-										9960,
-										9969
-									],
-									[
-										10242,
-										10251
-									],
-									[
-										10308,
-										10317
-									],
-									[
-										10432,
-										10441
-									],
-									[
-										10660,
-										10669
-									],
-									[
-										10715,
-										10724
-									],
-									[
-										10829,
-										10838
-									],
-									[
-										10927,
-										10936
-									],
-									[
-										10993,
-										11002
-									],
-									[
-										11117,
-										11126
-									],
-									[
-										11221,
-										11230
-									],
-									[
-										11284,
-										11293
-									],
-									[
-										11424,
-										11433
-									],
-									[
-										11696,
-										11705
-									],
-									[
-										11928,
-										11937
-									],
-									[
-										12246,
-										12255
-									],
-									[
-										12463,
-										12472
-									],
-									[
-										12687,
-										12696
-									],
-									[
-										12897,
-										12906
-									],
-									[
-										12994,
-										13003
-									],
-									[
-										13113,
-										13122
-									],
-									[
-										13189,
-										13198
-									],
-									[
-										13288,
-										13297
-									],
-									[
-										13390,
-										13399
-									],
-									[
-										13489,
-										13498
-									],
-									[
-										13589,
-										13598
-									],
-									[
-										13687,
-										13696
-									],
-									[
-										13790,
-										13799
-									],
-									[
-										13893,
-										13902
-									],
-									[
-										13993,
-										14002
-									],
-									[
-										14243,
-										14252
-									],
-									[
-										14346,
-										14355
-									],
-									[
-										14487,
-										14496
-									],
-									[
-										14550,
-										14559
-									],
-									[
-										14615,
-										14624
-									],
-									[
-										14683,
-										14692
-									],
-									[
-										14748,
-										14757
-									],
-									[
-										14824,
-										14833
-									],
-									[
-										14898,
-										14907
-									],
-									[
-										14977,
-										14986
-									],
-									[
-										15056,
-										15065
-									],
-									[
-										15132,
-										15141
-									],
-									[
-										15347,
-										15356
-									],
-									[
-										15398,
-										15407
-									],
-									[
-										15463,
-										15472
-									],
-									[
-										15579,
-										15588
-									],
-									[
-										15812,
-										15821
-									],
-									[
-										15922,
-										15931
-									],
-									[
-										16017,
-										16026
-									],
-									[
-										16161,
-										16170
-									],
-									[
-										16335,
-										16344
-									],
-									[
-										16370,
-										16379
-									],
-									[
-										16407,
-										16416
-									],
-									[
-										16447,
-										16456
-									],
-									[
-										16484,
-										16493
-									],
-									[
-										16524,
-										16533
-									],
-									[
-										16562,
-										16571
-									],
-									[
-										16605,
-										16614
-									],
-									[
-										16648,
-										16657
-									],
-									[
-										16694,
-										16703
-									],
-									[
-										16927,
-										16936
-									],
-									[
-										16978,
-										16987
-									],
-									[
-										17001,
-										17010
-									],
-									[
-										17068,
-										17077
-									],
-									[
-										17161,
-										17170
-									],
-									[
-										17209,
-										17218
-									],
-									[
-										17304,
-										17313
-									],
-									[
-										17530,
-										17539
-									],
-									[
-										17581,
-										17590
-									],
-									[
-										17648,
-										17657
-									],
-									[
-										17764,
-										17773
-									],
-									[
-										17930,
-										17939
-									],
-									[
-										18044,
-										18053
-									],
-									[
-										18233,
-										18242
-									],
-									[
-										18268,
-										18277
-									],
-									[
-										18305,
-										18314
-									],
-									[
-										18345,
-										18354
-									],
-									[
-										18382,
-										18391
-									],
-									[
-										18420,
-										18429
-									],
-									[
-										18456,
-										18465
-									],
-									[
-										18497,
-										18506
-									],
-									[
-										18538,
-										18547
-									],
-									[
-										18582,
-										18591
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"incomplete_sync": null,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ \t].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 980.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "3/vendor/yiisoft/yii2/web/UrlManager.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 25873,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7528,
-								7528
+								1922,
+								1922
 							]
 						],
 						"settings":
@@ -1377,19 +539,19 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3069.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
-					"file": "dev/wualaapp/1/src/pages/index.vue",
+					"buffer": 8,
+					"file": "3/controllers/UserController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 211,
+						"buffer_size": 3218,
 						"regions":
 						{
 						},
@@ -1397,7 +559,7 @@
 						[
 							[
 								0,
-								211
+								0
 							]
 						],
 						"settings":
@@ -1405,13 +567,81 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/Vue Syntax Highlight/Vue Component.sublime-syntax"
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "3/models/UserSearch.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3102,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "3/models/User.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2893,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
 					"type": "text"
 				}
 			]

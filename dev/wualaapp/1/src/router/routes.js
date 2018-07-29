@@ -4,7 +4,8 @@ export default [
     path: '/',
     component: () => import('layouts/default'),
     children: [
-      { path: '', component: () => import('pages/NewAccount') }
+      { name: 'LogIn', path: '/log-in', component: () => import('pages/LogIn') },
+      { name: 'NewAccount', path: '/new-account', component: () => import('pages/NewAccount') }
     ]
   },
 

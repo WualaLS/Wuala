@@ -18,8 +18,8 @@ class CustomersSearch extends Customers
     public function rules()
     {
         return [
-            [['customers_id'], 'integer'],
-            [['customers_name', 'customers_address', 'customers_city', 'customers_state', 'customers_zip', 'customers_username', 'customers_password', 'customers_email', 'customers_birthday'], 'safe'],
+            [['customers_id', 'customers_washer'], 'integer'],
+            [['customers_first_name', 'customers_last_name', 'customers_address', 'customers_city', 'customers_state', 'customers_zip', 'customers_username', 'customers_password', 'customers_email', 'customers_birthday'], 'safe'],
         ];
     }
 
@@ -60,17 +60,19 @@ class CustomersSearch extends Customers
         // grid filtering conditions
         $query->andFilterWhere([
             'customers_id' => $this->customers_id,
+            'customers_birthday' => $this->customers_birthday,
+            'customers_washer' => $this->customers_washer,
         ]);
 
-        $query->andFilterWhere(['like', 'customers_name', $this->customers_name])
+        $query->andFilterWhere(['like', 'customers_first_name', $this->customers_first_name])
+            ->andFilterWhere(['like', 'customers_last_name', $this->customers_last_name])
             ->andFilterWhere(['like', 'customers_address', $this->customers_address])
             ->andFilterWhere(['like', 'customers_city', $this->customers_city])
             ->andFilterWhere(['like', 'customers_state', $this->customers_state])
             ->andFilterWhere(['like', 'customers_zip', $this->customers_zip])
             ->andFilterWhere(['like', 'customers_username', $this->customers_username])
             ->andFilterWhere(['like', 'customers_password', $this->customers_password])
-            ->andFilterWhere(['like', 'customers_email', $this->customers_email])
-            ->andFilterWhere(['like', 'customers_birthday', $this->customers_birthday]);
+            ->andFilterWhere(['like', 'customers_email', $this->customers_email]);
 
         return $dataProvider;
     }

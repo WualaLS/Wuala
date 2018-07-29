@@ -34,7 +34,7 @@ module.exports = function (ctx) {
         })
       },
       env: {
-        serverPath: JSON.stringify('https://www.wualaapp.com/3')
+        serverPath: JSON.stringify('https://wualaapp.com/3')
       }
     },
     devServer: {
@@ -60,7 +60,13 @@ module.exports = function (ctx) {
         'QItemMain',
         'QItemSide',
         'QField',
-        'QInput'
+        'QInput',
+        'QCard',
+        'QCardTitle',
+        'QCardMain',
+        'QCardMedia',
+        'QCardSeparator',
+        'QCardActions'
       ],
       directives: [
         'Ripple'

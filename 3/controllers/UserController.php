@@ -3,40 +3,47 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Customers;
-use app\models\CustomersSearch;
+use app\models\User;
+use app\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\Response;
+use yii\filters\AccessControl;
 
 /**
- * CustomersController implements the CRUD actions for Customers model.
+ * UserController implements the CRUD actions for User model.
  */
-class CustomersController extends Controller
+class UserController extends Controller
 {
+    public $enableCsrfValidation = false;
     /**
      * {@inheritdoc}
      */
     public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
+        $behaviors['access'] = [
+            'class' => AccessControl::className(),
+            'rules' => [
+                [
+                    'actions' => [
+                        'put-user-ajax'
+                    ],
+                    'allow' => true,
+                    'roles' => ['?'],
+                ]
+            ]
         ];
+        return $behaviors;
     }
 
     /**
-     * Lists all Customers models.
+     * Lists all User models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new CustomersSearch();
+        $searchModel = new UserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -46,7 +53,7 @@ class CustomersController extends Controller
     }
 
     /**
-     * Displays a single Customers model.
+     * Displays a single User model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -59,16 +66,16 @@ class CustomersController extends Controller
     }
 
     /**
-     * Creates a new Customers model.
+     * Creates a new User model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Customers();
+        $model = new User();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->customers_id]);
+            return $this->redirect(['view', 'id' => $model->user_id]);
         }
 
         return $this->render('create', [
@@ -77,7 +84,7 @@ class CustomersController extends Controller
     }
 
     /**
-     * Updates an existing Customers model.
+     * Updates an existing User model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -88,7 +95,7 @@ class CustomersController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->customers_id]);
+            return $this->redirect(['view', 'id' => $model->user_id]);
         }
 
         return $this->render('update', [
@@ -97,7 +104,7 @@ class CustomersController extends Controller
     }
 
     /**
-     * Deletes an existing Customers model.
+     * Deletes an existing User model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -111,15 +118,15 @@ class CustomersController extends Controller
     }
 
     /**
-     * Finds the Customers model based on its primary key value.
+     * Finds the User model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Customers the loaded model
+     * @return User the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Customers::findOne($id)) !== null) {
+        if (($model = User::findOne($id)) !== null) {
             return $model;
         }
 
@@ -131,5 +138,14 @@ class CustomersController extends Controller
         \Yii::$app->response->format = Response::FORMAT_JSON;
 
         return "It Worked!";
+    }
+    public function actionPutUserAjax()
+    {
+
+        \Yii::$app->response->format = Response::FORMAT_JSON;
+
+        $UpModel = Yii::$app->request->post('UpModel');
+
+        return $UpModel;
     }
 }

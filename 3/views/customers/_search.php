@@ -17,13 +17,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'customers_id') ?>
 
-    <?= $form->field($model, 'customers_name') ?>
+    <?= $form->field($model, 'customers_first_name') ?>
+
+    <?= $form->field($model, 'customers_last_name') ?>
 
     <?= $form->field($model, 'customers_address') ?>
 
     <?= $form->field($model, 'customers_city') ?>
 
-    <?= $form->field($model, 'customers_state') ?>
+    <?php // echo $form->field($model, 'customers_state') ?>
 
     <?php // echo $form->field($model, 'customers_zip') ?>
 
@@ -34,6 +36,8 @@ use yii\widgets\ActiveForm;
     <?php // echo $form->field($model, 'customers_email') ?>
 
     <?php // echo $form->field($model, 'customers_birthday') ?>
+
+    <?php // echo $form->field($model, 'customers_washer') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

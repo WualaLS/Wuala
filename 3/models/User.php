@@ -2,103 +2,97 @@
 
 namespace app\models;
 
-class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
+use Yii;
+
+/**
+ * This is the model class for table "user".
+ *
+ * @property int $user_id
+ * @property string $user_username
+ * @property string $user_password
+ * @property string $user_salt
+ * @property string $user_authkey
+ * @property string $user_first_name
+ * @property string $user_last_name
+ * @property string $user_address
+ * @property string $user_city
+ * @property string $user_state
+ * @property string $user_zip
+ * @property string $user_email
+ * @property string $user_mobile_number
+ * @property string $user_home_number
+ * @property string $user_birthday
+ * @property int $user_washer 0 = No 1 = Yes
+ * @property int $user_active 0 = No 1 = Yes
+ * @property string $user_password_last_updated
+ * @property int $user_password_last_updated_by
+ * @property int $user_password_reset 0 = No 1 = Yes
+ */
+class User extends \yii\db\ActiveRecord
 {
-    public $id;
-    public $username;
-    public $password;
-    public $authKey;
-    public $accessToken;
-
-    private static $users = [
-        '100' => [
-            'id' => '100',
-            'username' => 'admin',
-            'password' => 'admin',
-            'authKey' => 'test100key',
-            'accessToken' => '100-token',
-        ],
-        '101' => [
-            'id' => '101',
-            'username' => 'demo',
-            'password' => 'demo',
-            'authKey' => 'test101key',
-            'accessToken' => '101-token',
-        ],
-    ];
-
-
     /**
      * {@inheritdoc}
      */
-    public static function findIdentity($id)
+    public static function tableName()
     {
-        return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
+        return 'user';
     }
 
     /**
      * {@inheritdoc}
      */
-    public static function findIdentityByAccessToken($token, $type = null)
+    public function rules()
     {
-        foreach (self::$users as $user) {
-            if ($user['accessToken'] === $token) {
-                return new static($user);
+        return [
+            [['user_username', 'user_password', 'user_first_name', 'user_last_name', 'user_email'], 'required'],
+            [['user_birthday', 'user_password_last_updated'], 'safe'],
+            [['user_washer', 'user_active', 'user_password_last_updated_by', 'user_password_reset'], 'integer'],
+            [['user_username', 'user_password', 'user_salt', 'user_first_name', 'user_last_name', 'user_address'], 'string', 'max' => 128],
+            [['user_authkey'], 'string', 'max' => 36],
+            [['user_city', 'user_zip', 'user_email', 'user_mobile_number', 'user_home_number'], 'string', 'max' => 45],
+            [['user_state'], 'string', 'max' => 2],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'user_id' => 'User ID',
+            'user_username' => 'User Username',
+            'user_password' => 'User Password',
+            'user_salt' => 'User Salt',
+            'user_authkey' => 'User Authkey',
+            'user_first_name' => 'User First Name',
+            'user_last_name' => 'User Last Name',
+            'user_address' => 'User Address',
+            'user_city' => 'User City',
+            'user_state' => 'User State',
+            'user_zip' => 'User Zip',
+            'user_email' => 'User Email',
+            'user_mobile_number' => 'User Mobile Number',
+            'user_home_number' => 'User Home Number',
+            'user_birthday' => 'User Birthday',
+            'user_washer' => 'User Washer',
+            'user_active' => 'User Active',
+            'user_password_last_updated' => 'User Password Last Updated',
+            'user_password_last_updated_by' => 'User Password Last Updated By',
+            'user_password_reset' => 'User Password Reset',
+        ];
+    }
+    public function loadAll($data, $nullExtra = true)
+    {
+        foreach ($this->attributes() as $key => $value) {
+            if (array_key_exists($value, $data)) {
+                $this[$value] = $data[$value];
+            } else {
+                if ($nullExtra) {
+                    $this[$value] = NULL;
+                }
             }
         }
-
-        return null;
-    }
-
-    /**
-     * Finds user by username
-     *
-     * @param string $username
-     * @return static|null
-     */
-    public static function findByUsername($username)
-    {
-        foreach (self::$users as $user) {
-            if (strcasecmp($user['username'], $username) === 0) {
-                return new static($user);
-            }
-        }
-
-        return null;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getAuthKey()
-    {
-        return $this->authKey;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function validateAuthKey($authKey)
-    {
-        return $this->authKey === $authKey;
-    }
-
-    /**
-     * Validates password
-     *
-     * @param string $password password to validate
-     * @return bool if password provided is valid for current user
-     */
-    public function validatePassword($password)
-    {
-        return $this->password === $password;
+        return true;
     }
 }

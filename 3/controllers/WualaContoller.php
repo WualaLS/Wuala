@@ -3,54 +3,34 @@
 namespace app\controllers;
 
 use Yii;
-use yii\filters\auth\CompositeAuth;
-use yii\filters\auth\QueryParamAuth
-use yii\filters\AccessControl;
+use app\models\Customers;
+use app\models\CustomersSearch;
 use yii\web\Controller;
-use yii\web\Response;
-use yii\filters\VerbFilter;
-use yii\db\Query;
 use yii\web\NotFoundHttpException;
+use yii\filters\VerbFilter;
+use yii\web\Response;
 
 class WualaController extends Controller
 {
-	public $enableCsrfValidation = false;
-
+    /**
+     * {@inheritdoc}
+     */
     public function behaviors()
     {
-        $behaviors = parent::behaviors();
-
-        if (strpos(Yii::$app->request->referrer, 'http://localhost') === 0) {
-        	$behaviors['authenticator'] = [
-        		'class' => CompositeAuth::className(),
-        		'authMethods' => [
-        			QueryParamAuth::className(),
-        		],
-        		'only' => [
-        			'test'
-        		]
-        	];
-        }
-
-        $behaviors['access'] [
-        	'class' => AccessControl::className(),
-        	'rules' => [
-        		[
-        			'actions' => [
-        				'test'
-        			],
-        			'allow' => true,
-        			'roles' => ['?']
-        		],
-        	],
+        return [
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST'],
+                ],
+            ],
         ];
-        return $behaviors;
     }
 
     public function actionTest(){
 
-    	\Yii::$app->response->format = Response::FORMAT_JSON;
+        \Yii::$app->response->format = Response::FORMAT_JSON;
 
-    	return "It Worked!";
+        return "It Worked!";
     }
 }

@@ -14,7 +14,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'customers_id')->textInput() ?>
 
-    <?= $form->field($model, 'customers_name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'customers_first_name')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'customers_last_name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'customers_address')->textInput(['maxlength' => true]) ?>
 
@@ -30,7 +32,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'customers_email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'customers_birthday')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'customers_birthday')->textInput() ?>
+
+    <?= $form->field($model, 'customers_washer')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
