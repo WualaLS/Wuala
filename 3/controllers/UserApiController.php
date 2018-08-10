@@ -27,7 +27,8 @@ class UserApiController extends Controller
             'rules' => [
                 [
                     'actions' => [
-                        'put-user-ajax'
+                        'put-user-ajax',
+                        'test'
                     ],
                     'allow' => true,
                     'roles' => ['?'],
@@ -53,6 +54,9 @@ class UserApiController extends Controller
 
         $model = new User();
         $model->loadAll($UpModel);
+        // $model->user_id = $UpModel['user_id'];
+        $model->user_salt = $model->generateSalt();
+        $model->user_password = $model->hashPassword($model->user_password, $model->user_salt);
         $UpModel["saved"] = $model->save();
         $UpModel["errors"] = $model->errors;
         $UpModel["model"] = $model;

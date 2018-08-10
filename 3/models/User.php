@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "user".
  *
- * @property int $user_id
+ * @property string $user_id
  * @property string $user_username
  * @property string $user_password
  * @property string $user_salt
@@ -44,13 +44,14 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_username', 'user_password', 'user_first_name', 'user_last_name', 'user_email'], 'required'],
+            [['user_id', 'user_username', 'user_password', 'user_first_name', 'user_last_name', 'user_email'], 'required'],
             [['user_birthday', 'user_password_last_updated'], 'safe'],
             [['user_washer', 'user_active', 'user_password_last_updated_by', 'user_password_reset'], 'integer'],
+            [['user_id', 'user_city', 'user_zip', 'user_email', 'user_mobile_number', 'user_home_number'], 'string', 'max' => 45],
             [['user_username', 'user_password', 'user_salt', 'user_first_name', 'user_last_name', 'user_address'], 'string', 'max' => 128],
             [['user_authkey'], 'string', 'max' => 36],
-            [['user_city', 'user_zip', 'user_email', 'user_mobile_number', 'user_home_number'], 'string', 'max' => 45],
             [['user_state'], 'string', 'max' => 2],
+            [['user_id'], 'unique'],
         ];
     }
 
@@ -82,17 +83,23 @@ class User extends \yii\db\ActiveRecord
             'user_password_reset' => 'User Password Reset',
         ];
     }
-    public function loadAll($data, $nullExtra = true)
-    {
-        foreach ($this->attributes() as $key => $value) {
-            if (array_key_exists($value, $data)) {
-                $this[$value] = $data[$value];
-            } else {
-                if ($nullExtra) {
-                    $this[$value] = NULL;
-                }
-            }
-        }
-        return true;
-    }
+    public function loadAll($data, $nullExtra = true)  
+    {  
+      foreach ($this->attributes() as $key => $value) {  
+          if (array_key_exists($value, $data)) {  
+              $this[$value] = $data[$value];  
+          } else {  
+              if ($nullExtra) {  
+                  $this[$value] = NULL;  
+              }  
+          }  
+      }  
+      return true;  
+    }  
+    public function hashPassword($password, $salt) {  
+      return md5($salt.$password);  
+    }  
+    public function generateSalt() {  
+      return uniqid('', true);  
+    }  
 }

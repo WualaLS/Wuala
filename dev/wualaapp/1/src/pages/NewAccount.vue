@@ -17,6 +17,7 @@
       <q-card-separator />
       <q-card-actions align="center">
         <q-btn color="primary" @click="createAccount">Create Account</q-btn>
+        <q-btn color="primary" @click="ajaxTest">Ajax Test</q-btn>
       </q-card-actions>
     </q-card>
   </q-page>
@@ -26,10 +27,13 @@
 </style>
 
 <script>
+import { uid } from 'quasar'
+
 export default {
   name: 'NewAccount',
   data () {
     return {
+      user_id: uid(),
       user_first_name: null,
       user_last_name: null,
       user_email: null,
@@ -42,29 +46,57 @@ export default {
   methods: {
     createAccount () {
       console.log('createAccount')
-      let UpModel = {
-        'user_first_name': this.user_first_name,
-        'user_last_name': this.user_last_name,
-        'user_email': this.user_email,
-        'user_username': this.user_username,
-        'user_password': this.user_password,
-        'user_mobile_number': this.user_mobile_number
-      }
-      this.$axios.post(process.env.serverPath + '/web/index.php?r=user-api%2Fput-user-ajax',
-        this.$qs.stringify({
-          UpModel: UpModel
+      console.log(this.user_id)
+      if (this.user_password === this.user_confirm_password && this.user_password !== null && this.user_password !== '') {
+        let UpModel = {
+          'user_id': this.user_id,
+          'user_first_name': this.user_first_name,
+          'user_last_name': this.user_last_name,
+          'user_email': this.user_email,
+          'user_username': this.user_username,
+          'user_password': this.user_password,
+          'user_mobile_number': this.user_mobile_number
+        }
+        this.$axios.post(process.env.serverPath + '/web/index.php?r=user-api%2Fput-user-ajax',
+          this.$qs.stringify({
+            UpModel: UpModel
+          })
+        ).then((response) => {
+          console.log('createAccount response')
+          console.log(response.data)
+          this.$q.notify({
+            color: 'negative',
+            icon: 'warning',
+            message: 'New Account Created'
+          })
+        }).catch(error => {
+          console.log('createAccount error')
+          console.log(error)
+          this.$q.notify({
+            color: 'negative',
+            icon: 'warning',
+            message: 'Failed to Create New Account'
+          })
         })
-      ).then((response) => {
-        console.log('createAccount response')
-        console.log(response.data)
-      }).catch(error => {
-        console.log('createAccount error')
-        console.log(error)
-      })
+      } else if (this.user_password !== this.user_confirm_password) {
+        console.log('Password Not Confirmed')
+        this.$q.notify({
+          color: 'negative',
+          icon: 'warning',
+          message: 'Password Not Confirmed'
+        })
+      } else if (this.user_password === null || this.user_password === '') {
+        console.log('No Password Entered')
+        this.$q.notify({
+          color: 'negative',
+          icon: 'warning',
+          message: 'Please Enter a Password'
+        })
+      }
     },
     ajaxTest () {
       console.log('ajaxTest')
-      this.$axios.get(process.env.serverPath + '/web/index.php?r=user%2Ftest').then((response) => {
+      this.$axios.get(process.env.serverPath + '/web/index.php?r=user-api%2Ftest').then((response) => {
         console.log('response')
         console.log(response.data)
       })

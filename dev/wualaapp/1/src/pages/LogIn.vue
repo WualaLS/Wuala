@@ -1,10 +1,9 @@
 <template>
   <q-page padding>
-    <!--<q-btn @click="ajaxTest">Ajax Test</q-btn>-->
     <q-card>
       <q-card-main class="row gutter-md no-vert-gutter">
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input float-label="Username"></q-input></q-field>
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input float-label="Password"></q-input></q-field>
+        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="username" float-label="Username"></q-input></q-field>
+        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="password" float-label="Password"></q-input></q-field>
       </q-card-main>
       <q-card-separator />
       <q-card-actions align="center">
@@ -20,15 +19,14 @@
 
 <script>
 export default {
-  name: 'NewAccount',
+  name: 'LogIn',
+  data () {
+    return {
+      username: null,
+      password: null
+    }
+  },
   methods: {
-    ajaxTest () {
-      console.log('ajaxTest')
-      this.$axios.post(process.env.serverPath + '/web/index.php?r=customers%2Ftest').then((response) => {
-        console.log('response')
-        console.log(response.data)
-      })
-    },
     signUp () {
       this.$router.push({name: 'NewAccount'})
     }
