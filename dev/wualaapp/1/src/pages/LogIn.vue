@@ -3,11 +3,11 @@
     <q-card>
       <q-card-main class="row gutter-md no-vert-gutter">
         <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="username" float-label="Username"></q-input></q-field>
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="password" float-label="Password"></q-input></q-field>
+        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="password" type="password" float-label="Password"></q-input></q-field>
       </q-card-main>
       <q-card-separator />
       <q-card-actions align="center">
-        <q-btn color="primary">Log In</q-btn>
+        <q-btn color="primary" @click="login">Log In</q-btn>
         <q-btn color="primary" @click="signUp">Sign Up</q-btn>
       </q-card-actions>
     </q-card>
@@ -29,7 +29,51 @@ export default {
   methods: {
     signUp () {
       this.$router.push({name: 'NewAccount'})
+    },
+    isGuest () {
+      console.log('isGuest')
+      this.$axios.post(process.env.serverPath + '/web/index.php?r=user-api%2Fis-guest'
+      ).then((response) => {
+        console.log('isGuest response')
+        console.log(response.data)
+      }).catch(error => {
+        console.log('isGuest error')
+        console.log(error)
+      })
+    },
+    isLoggedIn () {
+      console.log('isLoggedIn')
+      this.$axios.post(process.env.serverPath + '/web/index.php?r=user-api%2Fis-logged-in'
+      ).then((response) => {
+        console.log('isLoggedIn response')
+        console.log(response.data)
+      }).catch(error => {
+        console.log('isLoggedIn error')
+        console.log(error)
+      })
+    },
+    login () {
+      console.log('isLoggedIn')
+      this.$axios.post(process.env.serverPath + '/web/index.php?r=user-api%2Flogin',
+        this.$qs.stringify({
+          username: this.username,
+          password: this.password
+        })
+      ).then((response) => {
+        console.log('isLoggedIn response')
+        console.log(response.data)
+      }).catch(error => {
+        console.log('isLoggedIn error')
+        console.log(error)
+      })
     }
+  },
+  mounted () {
+    console.log('mounted')
+    console.log('isGuest')
+    this.isGuest()
+    console.log('isLoggedIn')
+    this.isLoggedIn()
   }
 }
 </script>

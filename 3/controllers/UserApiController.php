@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\User;
 use app\models\UserSearch;
+use app\models\LoginForm;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -27,6 +28,9 @@ class UserApiController extends Controller
             'rules' => [
                 [
                     'actions' => [
+                        'is-guest',
+                        'is-logged-in',
+                        'login',
                         'put-user-ajax',
                         'test'
                     ],
@@ -44,6 +48,44 @@ class UserApiController extends Controller
         \Yii::$app->response->format = Response::FORMAT_JSON;
 
         return "It Worked!";
+    }
+    public function actionIsGuest()
+    {
+
+        \Yii::$app->response->format = Response::FORMAT_JSON;
+
+        return \Yii::$app->user->isGuest;
+    }
+    public function actionIsLoggedIn()
+    {
+
+        \Yii::$app->response->format = Response::FORMAT_JSON;
+
+        return !\Yii::$app->user->isGuest;
+    }
+    public function actionLogin()
+    {
+
+        \Yii::$app->response->format = Response::FORMAT_JSON;
+
+        $model = new LoginForm();
+        $response = [];
+        $response['loggedIn'] = false;
+        $response['info'] = 'Not Set';
+        $response['accessToken'] = null;
+
+        $model->username = Yii::$app->request->post()['username'];
+        $model->password = Yii::$app->request->post()['password'];
+
+        if ($model->login()) {
+            $response['loggedIn'] = true;
+            $response['info'] = 'Good';
+            $response['accessToken'] = User::find()->select(['user_authkey'])->where(['user_id' => \Yii::$app->user->getId()])->one()['user_authkey'];
+            return $response;
+        } else {
+            $response['info'] = 'No Good Creds';
+            return $response;
+        }
     }
     public function actionPutUserAjax()
     {

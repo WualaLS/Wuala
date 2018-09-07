@@ -10,8 +10,8 @@
         <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="user_last_name" float-label="Last Name"></q-input></q-field>
         <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="user_email" float-label="Email Address"></q-input></q-field>
         <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="user_username" float-label="User Name"></q-input></q-field>
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="user_password" float-label="Password"></q-input></q-field>
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="user_confirm_password" float-label="Confirm Password"></q-input></q-field>
+        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="user_password" type="password" float-label="Password"></q-input></q-field>
+        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="user_confirm_password" type="password" float-label="Confirm Password"></q-input></q-field>
         <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="user_mobile_number" float-label="Phone Number"></q-input></q-field>
       </q-card-main>
       <q-card-separator />
@@ -34,6 +34,7 @@ export default {
   data () {
     return {
       user_id: uid(),
+      user_authkey: uid(),
       user_first_name: null,
       user_last_name: null,
       user_email: null,
@@ -50,6 +51,7 @@ export default {
       if (this.user_password === this.user_confirm_password && this.user_password !== null && this.user_password !== '') {
         let UpModel = {
           'user_id': this.user_id,
+          'user_authkey': this.user_authkey,
           'user_first_name': this.user_first_name,
           'user_last_name': this.user_last_name,
           'user_email': this.user_email,
@@ -65,8 +67,8 @@ export default {
           console.log('createAccount response')
           console.log(response.data)
           this.$q.notify({
-            color: 'negative',
-            icon: 'warning',
+            color: 'green',
+            icon: 'done',
             message: 'New Account Created'
           })
         }).catch(error => {

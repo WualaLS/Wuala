@@ -28,7 +28,7 @@ use Yii;
  * @property int $user_password_last_updated_by
  * @property int $user_password_reset 0 = No 1 = Yes
  */
-class User extends \yii\db\ActiveRecord
+class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
     /**
      * {@inheritdoc}
@@ -83,6 +83,40 @@ class User extends \yii\db\ActiveRecord
             'user_password_reset' => 'User Password Reset',
         ];
     }
+    public function getId()
+    {
+      return $this->getPrimaryKey();
+    }
+    public  function getAuthKey()
+    {
+      return $this->user_authkey;
+    }
+    public  function validateAuthKey($authKey)
+    {
+      return $this->getAuthKey() === $authKey;
+    }
+    public static function findIdentity($id)
+    {
+      return static::findOne($id);
+    }
+    public static function findIdentityByAccessToken($token, $type = null)
+    {
+      return static::findOne(['user_authkey' => $token]);
+    }
+    public static function findByUsername($username)
+    {
+      return static:: findOne(['user_username' => $username]);
+    }
+    public static function findByPasswordResetToken($token)
+    {
+      $expire = \Yii::$app->params['user.passwordResetTokenExpire'];
+      $parts = explode('_', $token);
+      $timestamp = (int) end($parts);
+      if ($timestamp + $expire < time()) {
+        // token expired
+        return null;
+      }
+    }
     public function loadAll($data, $nullExtra = true)  
     {  
       foreach ($this->attributes() as $key => $value) {  
@@ -101,5 +135,9 @@ class User extends \yii\db\ActiveRecord
     }  
     public function generateSalt() {  
       return uniqid('', true);  
-    }  
+    }
+    public function validatePassword($password)
+    {
+      return $this->user_password === md5($this->user_salt.$password);
+    }
 }
