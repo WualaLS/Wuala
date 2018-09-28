@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"user_",
+				"user_authkey"
+			],
+			[
+				"user",
+				"username"
+			],
+			[
 				"array_key",
 				"array_key_exists"
 			],
@@ -68,40 +76,63 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/dgmye/Documents/GitHub/Wuala"
+		"/C/Users/dgmye/Documents/GitHub/Wuala",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/config",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/controllers",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/models",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/vendor",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/vendor/yiisoft",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/vendor/yiisoft/yii2",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/vendor/yiisoft/yii2/base",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/dist",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/pages",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src-pwa"
 	],
 	"file_history":
 	[
-		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/pages/NewAccount.vue",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/3/models/User.php",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/3/controllers/UserApiController.php",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/pages/LogIn.vue",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/3/config/db.php",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/sftp-config.json",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/quasar.conf.js",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/3/controllers/SiteController.php",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/3/controllers/UserController.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/vendor/yiisoft/yii2/base/Component.php",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/3/models/LoginForm.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/pages/LogIn.vue",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/controllers/UserApiController.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/quasar.conf.js",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/dist/pwa-mat/index.html",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/index.template.html",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/dist/pwa-mat/service-worker.js",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/css/app.styl",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/pages/NewAccount.vue",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/layouts/default.vue",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/layouts/NewAccountLayout.vue",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/router/routes.js",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src-pwa/register-service-worker.js",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/controllers/WualaContoller.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/models/User.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/config/web.php",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/sftp-config.json",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/package.json",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/Vagrantfile",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/.editorconfig",
+		"/C/Users/dgmye/Documents/GitHub/Wuala/3/controllers/SiteController.php",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/3/controllers/CustomersController.php",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/App.vue",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/router/routes.js",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/3/models/UserFirst.php",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/3/models/UserSearch.php",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/3/views/wuala/index.php",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/3/views/user/index.php",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/3/controllers/WualaContoller.php",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/pages/index.vue",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/3/views/site/login.php",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/3/models/Customers.php",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/3/models/CustomersSearch.php",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/layouts/default.vue",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/3/web/index.php",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/3/config/web.php",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/1/config/web.php",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/src/plugins/qs.js",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/3/Vagrantfile",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/3/vendor/yiisoft/yii2/web/UrlManager.php",
-		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/package.json",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/1/config/db.php",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/dev/wualaapp/1/.eslintrc.js",
 		"/C/Users/dgmye/Documents/GitHub/Wuala/3/vendor/yiisoft/yii2/web/Session.php",
@@ -130,7 +161,7 @@
 	],
 	"find":
 	{
-		"height": 27.0
+		"height": 40.0
 	},
 	"find_in_files":
 	{
@@ -146,9 +177,19 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"username",
+			"user_username",
+			"user",
+			"username",
+			"primary",
+			"user_id",
+			"public static",
+			"username",
+			"isGuest",
+			"createAccount",
 			"user_first_name",
 			"user_password",
 			"user",
