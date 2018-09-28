@@ -16,8 +16,8 @@
       </q-card-main>
       <q-card-separator />
       <q-card-actions align="center">
-        <q-btn color="primary" @click="createAccount">Create Account</q-btn>
-        <q-btn color="primary" @click="ajaxTest">Ajax Test</q-btn>
+        <q-btn color="light-green" @click="createAccount">Create Account</q-btn>
+        <!--<q-btn color="light-green" @click="ajaxTest">Ajax Test</q-btn>-->
       </q-card-actions>
     </q-card>
   </q-page>

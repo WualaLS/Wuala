@@ -2,6 +2,7 @@
   <q-layout view="lHh Lpr lFf">
     <q-layout-header reveal>
       <q-toolbar>
+        <q-btn flat round @click="$router.push('/log-in')"><q-icon name="mdi-chevron-left"></q-icon></q-btn>
         <q-toolbar-title>
           Wuala
           <div slot="subtitle">Laundry Services</div>

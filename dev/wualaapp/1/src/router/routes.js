@@ -4,7 +4,15 @@ export default [
     path: '/',
     component: () => import('layouts/default'),
     children: [
-      { name: 'LogIn', path: '/log-in', component: () => import('pages/LogIn') },
+      { name: 'LogIn', path: '/log-in', component: () => import('pages/LogIn') }
+      // { name: 'NewAccount', path: '/new-account', component: () => import('pages/NewAccount') }
+    ]
+  },
+  {
+    path: '/',
+    component: () => import('layouts/NewAccountLayout'),
+    children: [
+      // { name: 'LogIn', path: '/log-in', component: () => import('pages/LogIn') },
       { name: 'NewAccount', path: '/new-account', component: () => import('pages/NewAccount') }
     ]
   },

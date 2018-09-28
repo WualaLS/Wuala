@@ -7,8 +7,8 @@
       </q-card-main>
       <q-card-separator />
       <q-card-actions align="center">
-        <q-btn color="primary" @click="login">Log In</q-btn>
-        <q-btn color="primary" @click="signUp">Sign Up</q-btn>
+        <q-btn color="light-green" @click="login">Log In</q-btn>
+        <q-btn color="light-green" @click="signUp">Sign Up</q-btn>
       </q-card-actions>
     </q-card>
   </q-page>
@@ -54,7 +54,7 @@ export default {
     },
     login () {
       console.log('isLoggedIn')
-      this.$axios.post(process.env.serverPath + '/web/index.php?r=user-api%2Flogin',
+      this.$axios.post(process.env.serverPath + '/web/index.php?r=user-api%2Fuser-login',
         this.$qs.stringify({
           username: this.username,
           password: this.password

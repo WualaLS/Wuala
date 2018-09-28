@@ -12,15 +12,15 @@ module.exports = function (ctx) {
     ],
     extras: [
       ctx.theme.mat ? 'roboto-font' : null,
-      'material-icons' // optional, you are not bound to it
+      'material-icons', // optional, you are not bound to it
       // 'ionicons',
-      // 'mdi',
+      'mdi'
       // 'fontawesome'
     ],
     supportIE: false,
     build: {
       scopeHoisting: true,
-      vueRouterMode: 'history',
+      vueRouterMode: 'hash',
       // vueCompiler: true,
       // gzip: true,
       // analyze: true,

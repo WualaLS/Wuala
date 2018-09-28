@@ -30,12 +30,12 @@ class UserApiController extends Controller
                     'actions' => [
                         'is-guest',
                         'is-logged-in',
-                        'login',
+                        'user-login',
                         'put-user-ajax',
                         'test'
                     ],
                     'allow' => true,
-                    'roles' => ['?'],
+                    // 'roles' => ['?'],
                 ]
             ]
         ];
@@ -63,7 +63,7 @@ class UserApiController extends Controller
 
         return !\Yii::$app->user->isGuest;
     }
-    public function actionLogin()
+    public function actionUserLogin()
     {
 
         \Yii::$app->response->format = Response::FORMAT_JSON;
