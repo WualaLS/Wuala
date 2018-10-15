@@ -2,9 +2,9 @@
   <q-page padding>
     <q-card>
       <q-card-main class="row gutter-md no-vert-gutter">
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="subscribers_first_name" float-label="Username"></q-input></q-field>
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="subscribers_last_name" type="password" float-label="Password"></q-input></q-field>
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="subscribers_email" type="password" float-label="Password"></q-input></q-field>
+        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="subscribers_first_name" float-label="First Name"></q-input></q-field>
+        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="subscribers_last_name" float-label="Last Name"></q-input></q-field>
+        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="subscribers_email" float-label="Email"></q-input></q-field>
       </q-card-main>
       <q-card-separator />
       <q-card-actions align="center">
@@ -24,14 +24,14 @@ export default {
   data () {
     return {
       subscribers_first_name: null,
-      subscribers_lasr_name: null,
+      subscribers_last_name: null,
       subscribers_email: null,
-      subscribers_washer,
+      subscribers_washer: null
     }
   },
   methods: {
-    subscribe (){
-      
+    subscribe () {
+
     }
   },
   mounted () {
