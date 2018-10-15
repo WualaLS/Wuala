@@ -10,6 +10,7 @@
         <q-btn color="light-green" @click="login">Log In</q-btn>
         <q-btn color="light-green" @click="signUp">Sign Up</q-btn>
       </q-card-actions>
+      <img src="statics/wuala-logo-tagline.jpg" height="120" width="200" align="middle">
     </q-card>
   </q-page>
 </template>
@@ -53,17 +54,20 @@ export default {
       })
     },
     login () {
-      console.log('isLoggedIn')
+      console.log('login')
       this.$axios.post(process.env.serverPath + '/web/index.php?r=user-api%2Fuser-login',
         this.$qs.stringify({
           username: this.username,
           password: this.password
         })
       ).then((response) => {
-        console.log('isLoggedIn response')
+        console.log('login response')
         console.log(response.data)
+        if (response.data['loggedIn']) {
+          this.$router.push({name: 'WualaMap'})
+        }
       }).catch(error => {
-        console.log('isLoggedIn error')
+        console.log('login error')
         console.log(error)
       })
     }

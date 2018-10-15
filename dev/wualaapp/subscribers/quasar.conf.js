@@ -4,23 +4,22 @@ module.exports = function (ctx) {
   return {
     // app plugins (/src/plugins)
     plugins: [
-      'axios',
-      'qs'
+      'axios'
     ],
     css: [
       'app.styl'
     ],
     extras: [
       ctx.theme.mat ? 'roboto-font' : null,
-      'material-icons', // optional, you are not bound to it
+      'material-icons' // optional, you are not bound to it
       // 'ionicons',
-      'mdi'
+      // 'mdi',
       // 'fontawesome'
     ],
     supportIE: false,
     build: {
       scopeHoisting: true,
-      vueRouterMode: 'hash',
+      // vueRouterMode: 'history',
       // vueCompiler: true,
       // gzip: true,
       // analyze: true,
@@ -30,7 +29,7 @@ module.exports = function (ctx) {
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
-          exclude: /(node_modules|quasar)/
+          exclude: /node_modules/
         })
       },
       env: {
@@ -69,23 +68,23 @@ module.exports = function (ctx) {
         'QCardActions',
         'QSearch',
         'QTooltip',
-        'QSelect'
+        'QSelect',
       ],
       directives: [
         'Ripple'
       ],
       // Quasar plugins
       plugins: [
-        'Notify',
-        'Dialog',
-        'Loading'
+        'Notify'
       ]
       // iconSet: ctx.theme.mat ? 'material-icons' : 'ionicons'
       // i18n: 'de' // Quasar language
     },
     // animations: 'all' --- includes all animations
-    animations: [
-    ],
+    animations: [],
+    ssr: {
+      pwa: false
+    },
     pwa: {
       // workboxPluginMode: 'InjectManifest',
       // workboxOptions: {},

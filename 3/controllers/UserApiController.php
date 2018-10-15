@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\User;
+use app\models\Subscribers;
 use app\models\UserSearch;
 use app\models\LoginForm;
 use yii\web\Controller;
@@ -21,8 +22,47 @@ class UserApiController extends Controller
     /**
      * {@inheritdoc}
      */
+
+    public static function allowedDomains() {
+        return [
+            '*',                        // star allows all domains
+            // 'http://test1.example.com',
+            // 'http://test2.example.com',
+        ];
+    }
     public function behaviors()
     {
+        return array_merge(parent::behaviors(), [
+
+            // For cross-domain AJAX request
+            'corsFilter'  => [
+                'class' => \yii\filters\Cors::className(),
+                'cors'  => [
+                    // restrict access to domains:
+                    'Origin'                           => static::allowedDomains(),
+                    'Access-Control-Request-Method'    => ['POST'],
+                    'Access-Control-Allow-Credentials' => true,
+                    'Access-Control-Max-Age'           => 3600,                 // Cache (seconds)
+                ],
+            ],
+
+        ]);
+        $behaviors = parent::behaviors();
+
+        $behaviors['authenticator'] = [
+            'class' => CompositeAuth::className(),
+            'authMethods' => [
+                QueryParamAuth::className(),
+            ],
+            'only' => [
+                'is-guest',
+                'is-logged-in',
+                'user-login',
+                'put-user-ajax',
+                'test'
+            ]
+        ];
+
         $behaviors['access'] = [
             'class' => AccessControl::className(),
             'rules' => [
@@ -35,7 +75,7 @@ class UserApiController extends Controller
                         'test'
                     ],
                     'allow' => true,
-                    // 'roles' => ['?'],
+                    'roles' => ['?'],
                 ]
             ]
         ];
@@ -99,6 +139,21 @@ class UserApiController extends Controller
         // $model->user_id = $UpModel['user_id'];
         $model->user_salt = $model->generateSalt();
         $model->user_password = $model->hashPassword($model->user_password, $model->user_salt);
+        $UpModel["saved"] = $model->save();
+        $UpModel["errors"] = $model->errors;
+        $UpModel["model"] = $model;
+
+        return $UpModel;
+    }
+    public function actionPutSubscriberAjax()
+    {
+
+        \Yii::$app->response->format = Response::FORMAT_JSON;
+
+        $UpModel = Yii::$app->request->post('UpModel');
+
+        $model = new Subscribers();
+        $model->loadAll($UpModel);
         $UpModel["saved"] = $model->save();
         $UpModel["errors"] = $model->errors;
         $UpModel["model"] = $model;

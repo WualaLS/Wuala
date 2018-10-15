@@ -1,23 +1,16 @@
 <template>
   <q-page padding>
-    <!--<q-btn @click="ajaxTest">Ajax Test</q-btn>-->
     <q-card>
       <q-card-title>
-        Create an Account
+        Schedule a Wash
       </q-card-title>
       <q-card-main class="row gutter-md no-vert-gutter">
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="user_first_name" float-label="First Name"></q-input></q-field>
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="user_last_name" float-label="Last Name"></q-input></q-field>
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="user_email" float-label="Email Address"></q-input></q-field>
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="user_username" float-label="User Name"></q-input></q-field>
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="user_birthday" float-label="Birthday"></q-input></q-field>
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="user_password" type="password" float-label="Password"></q-input></q-field>
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="user_confirm_password" type="password" float-label="Confirm Password"></q-input></q-field>
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="user_mobile_number" float-label="Phone Number"></q-input></q-field>
+        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-select :options="selectFavoritesOptions" v-model="user_first_name" float-label="Favorites"></q-select></q-field>
+        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="user_last_name" float-label="Pick Up Time"></q-input></q-field>
       </q-card-main>
       <q-card-separator />
       <q-card-actions align="center">
-        <q-btn color="light-green" @click="createAccount">Create Account</q-btn>
+        <q-btn color="light-green" @click="save">Schedule Wash</q-btn>
         <!--<q-btn color="light-green" @click="ajaxTest">Ajax Test</q-btn>-->
       </q-card-actions>
     </q-card>
@@ -43,7 +36,17 @@ export default {
       user_birthday: null,
       user_password: null,
       user_confirm_password: null,
-      user_mobile_number: null
+      user_mobile_number: null,
+      selectFavoritesOptions: [
+        {
+          label: 'Ben Ang-Bejar',
+          value: 'Ben Ang-Bejar'
+        },
+        {
+          label: 'Keyla Myers',
+          value: 'Keyla Myers'
+        }
+      ]
     }
   },
   methods: {
@@ -58,7 +61,6 @@ export default {
           'user_last_name': this.user_last_name,
           'user_email': this.user_email,
           'user_username': this.user_username,
-          'user_birthday': this.user_birthday,
           'user_password': this.user_password,
           'user_mobile_number': this.user_mobile_number
         }
@@ -99,11 +101,12 @@ export default {
         })
       }
     },
-    ajaxTest () {
-      console.log('ajaxTest')
-      this.$axios.get(process.env.serverPath + '/web/index.php?r=user-api%2Ftest').then((response) => {
-        console.log('response')
-        console.log(response.data)
+    save () {
+      console.log('save')
+      this.$q.notify({
+        color: 'green',
+        icon: 'done',
+        message: 'Saved'
       })
     }
   }
