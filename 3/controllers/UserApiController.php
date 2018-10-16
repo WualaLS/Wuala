@@ -59,7 +59,8 @@ class UserApiController extends Controller
                 'is-logged-in',
                 'user-login',
                 'put-user-ajax',
-                'test'
+                'test',
+                'put-subscriber-ajax'
             ]
         ];
 
@@ -72,7 +73,8 @@ class UserApiController extends Controller
                         'is-logged-in',
                         'user-login',
                         'put-user-ajax',
-                        'test'
+                        'test',
+                        'put-subscriber-ajax'
                     ],
                     'allow' => true,
                     'roles' => ['?'],

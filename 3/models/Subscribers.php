@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "subscribers".
  *
- * @property int $subscribers_id
+ * @property string $subscribers_id
  * @property string $subscribers_first_name
  * @property string $subscribers_last_name
  * @property string $subscribers_email
@@ -30,9 +30,9 @@ class Subscribers extends \yii\db\ActiveRecord
     {
         return [
             [['subscribers_id', 'subscribers_email'], 'required'],
-            [['subscribers_id', 'subscribers_washer'], 'integer'],
+            [['subscribers_washer'], 'integer'],
+            [['subscribers_id', 'subscribers_email'], 'string', 'max' => 45],
             [['subscribers_first_name', 'subscribers_last_name'], 'string', 'max' => 128],
-            [['subscribers_email'], 'string', 'max' => 45],
             [['subscribers_id'], 'unique'],
         ];
     }
@@ -50,4 +50,17 @@ class Subscribers extends \yii\db\ActiveRecord
             'subscribers_washer' => 'Subscribers Washer',
         ];
     }
+    public function loadAll($data, $nullExtra = true)  
+    {  
+      foreach ($this->attributes() as $key => $value) {  
+          if (array_key_exists($value, $data)) {  
+              $this[$value] = $data[$value];  
+          } else {  
+              if ($nullExtra) {  
+                  $this[$value] = NULL;  
+              }  
+          }  
+      }  
+      return true;  
+    } 
 }

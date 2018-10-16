@@ -4,7 +4,8 @@ module.exports = function (ctx) {
   return {
     // app plugins (/src/plugins)
     plugins: [
-      'axios'
+      'axios',
+      'qs'
     ],
     css: [
       'app.styl'
@@ -69,13 +70,17 @@ module.exports = function (ctx) {
         'QSearch',
         'QTooltip',
         'QSelect',
+        'QCheckbox',
+        'QToggle'
       ],
       directives: [
         'Ripple'
       ],
       // Quasar plugins
       plugins: [
-        'Notify'
+        'Notify',
+        'Dialog',
+        'Loading'
       ]
       // iconSet: ctx.theme.mat ? 'material-icons' : 'ionicons'
       // i18n: 'de' // Quasar language
