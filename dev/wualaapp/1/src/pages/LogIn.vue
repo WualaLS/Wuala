@@ -64,7 +64,9 @@ export default {
         console.log('login response')
         console.log(response.data)
         if (response.data['loggedIn']) {
-          this.$router.push({name: 'WualaMap'})
+          this.$store.commit('user/setUser', response.data['userInfo'])
+          this.$store.commit('preferences/setPreferences', response.data['Preferences'])
+          this.$router.push({name: 'ScheduleWash'})
         }
       }).catch(error => {
         console.log('login error')

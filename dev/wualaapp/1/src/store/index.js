@@ -1,13 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import example from './module-example'
+import user from './user'
+import preferences from './preferences'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
-    example
+    user,
+    preferences
   }
 })
 

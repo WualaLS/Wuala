@@ -1,1 +1,450 @@
-<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta name=description content="Laundry Service App"><meta name=format-detection content="telephone=no"><meta name=msapplication-tap-highlight content=no><meta name=viewport content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width"><title>Wuala</title><link rel=icon href=statics/quasar-logo.png type=image/x-icon><link rel=icon type=image/png sizes=32x32 href=statics/icons/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=statics/icons/favicon-16x16.png><link as=style href=5.773a45dc.css rel=preload><link as=style href=app.61ad2d3e.css rel=preload><link as=script href=js/app.d7e50a58.js rel=preload><link as=script href=js/vendor.e28bb98c.js rel=preload><link href=1.ff70d5dd.css rel=prefetch><link href=2.1b30924d.css rel=prefetch><link href=3.3e989bf2.css rel=prefetch><link href=4.128b8036.css rel=prefetch><link href=js/0.176d6ac0.js rel=prefetch><link href=js/1.80b34721.js rel=prefetch><link href=js/2.3e62f5be.js rel=prefetch><link href=js/3.89520702.js rel=prefetch><link href=js/4.1954f3de.js rel=prefetch><link href=5.773a45dc.css rel=stylesheet><link href=app.61ad2d3e.css rel=stylesheet><link rel=manifest href=manifest.json><meta name=theme-color content=#027be3><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=#ffffff><meta name=apple-mobile-web-app-title content=Wuala><link rel=apple-touch-icon href=statics/icons/apple-icon-152x152.png><meta name=msapplication-TileImage content=statics/icons/ms-icon-144x144.png><meta name=msapplication-TileColor content=#ffffff></head><body><noscript>This is your fallback content in case JavaScript fails to load.</noscript><div id=q-app></div><script type=text/javascript src=js/vendor.e28bb98c.js></script><script type=text/javascript src=js/app.d7e50a58.js></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>Wuala! Laundry Done!</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="favicon_logo.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- Begin Constant Contact Active Forms -->
+  <script> var _ctct_m = "ea333f08bd8e7dd16e2c539c63bbbc57"; </script>
+  <script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
+  <!-- End Constant Contact Active Forms -->
+  <style>
+  body {
+    font: 400 15px Lato, sans-serif;
+    line-height: 1.8;
+    color: #818181;
+  }
+  h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #303030;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    color: #303030;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
+  .form-group {
+    margin-bottom: 2px;
+  }
+      
+  .jumbotron {
+    background-color: #4d305e; 
+    color: #fff;
+    padding: 100px 25px;
+    font-family: Montserrat, sans-serif;
+  }
+  .container-fluid {
+    padding: 60px 50px;
+  }
+  .bg-grey {
+    background-color: #f6f6f6;
+  }
+
+  .btn-default {
+    background-color: #98b53c;
+    color: #fff;
+  }
+  .logo-small {
+    color: #98b53c;
+    font-size: 50px;
+  }
+  .logo {
+    color: #f4511e;
+    font-size: 200px;
+  }
+  .panel {
+    border: 1px solid #98b53c; 
+    border-radius:0 !important;
+    transition: box-shadow 0.5s;
+  }
+  .panel:hover {
+    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+  }
+  .panel-footer .btn:hover {
+    border: 1px solid #98b53c;
+    background-color: #fff !important;
+    color: #f4511e;
+  }
+  .panel-heading {
+    color: #fff !important;
+    background-color: #98b53c !important;
+    padding: 25px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  .panel-footer {
+    background-color: white !important;
+  }
+  .panel-footer h3 {
+    font-size: 32px;
+  }
+  .panel-footer h4 {
+    color: #aaa;
+    font-size: 14px;
+  }
+  .panel-footer .btn {
+    margin: 15px 0;
+    background-color: #98b53c;
+    color: #fff;
+  }
+  .navbar {
+    margin-bottom: 0;
+    background-color: #4d305e;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    font-family: Montserrat, sans-serif;
+  }
+  .navbar li a, .navbar .navbar-brand {
+    color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #96b43d !important;
+    background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+  }
+
+  footer .glyphicon {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #98b53c;
+  }
+  .slideanim {visibility:hidden;}
+  .slide {
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    visibility: visible;
+  }
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+      width: 100%;
+      margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+      font-size: 150px;
+    }
+  }
+  </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage">WUALA</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#Wash">Wash</a></li>
+        <li><a href="#Works">How it works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+  <h1>wuala</h1> 
+  <p>Laundry sucks! Let us do it for you!</p> 
+  <p>Sign up to be a beta tester (Atlanta Area Only)</p>
+  <p>Text LAUNDRYDONE to 22828 to sign up or click Subscribe</p>    
+  <form class="form-inline">
+    <div class="input-group">
+      <!--<input type="email" class="form-control" size="50" placeholder="Email Adcress" required>-->
+      <div class="input-group-btn">
+        <button onclick="window.open('https://wualaapp.com/subscribe')" type="button" class="btn btn-default">Subscribe</button>
+      </div>
+    </div>
+  </form>
+</div>
+<!-- Container (About Section) -->
+<div id="Wash" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>What is Wuala?</h2><br>
+      <h4>Wuala is an On-Demand Laundry Service Company. With a few clicks on your mouse or taps on your phone/tablet - Wuala will pick up your dirty laundry, wash it, dry it, fold it, and deliver it back to you in less than 24 hours. Worry free!</h4><br>
+      <h2>Laundry done with your phone</h2><br>
+      <p>If you want to be part of the next new way to add more time to your life, Join Wuala! We guarantee that you will be happy with the extra time you will save by not worrying about doing laundry ever again.</p>
+      <br><!--<button onclick="window.open('https://wualaapp.com/beta')" class="btn btn-default btn-lg">Try us out!</button>-->
+    </div>
+    <div class="col-sm-4">
+      <img class="img-responsive" src="img1.jpg" alt="wuala-circle"> 
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg-grey">
+  <div class="row">
+    <div class="col-sm-4">
+      <img class="img-responsive" src="img2.png" alt="wualers">
+    </div>
+    <div class="col-sm-8">
+      <h2>Wanna make extra moolah? On your own time? Here is how.</h2>
+      <h4><stong><i>SIMPLE CHECKLIST</i></stong></h4><br>
+      <h4>+ Do you own an energy efficient washer and dryer?</h4><br>
+      <h4>+ Do you have reliable transportation?</h4><br>
+      <h4>+ Pass a background check</h4><br>
+      <h4>+ Attention to detail</h4><br>
+      <p><strong>JOIN US.</strong> Our goal is to have everyone succeed and make their lives better.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Container (Services Section) -->
+<div id="Works" class="container-fluid text-center">
+  <h2>HOW DOES IT WORK?</h2>
+  <h4>100% Worry free!</h4>
+  <br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-user logo-small"></span>
+      <h4>SIGN UP</h4>
+      <p>Create your profile.</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-usd logo-small"></span>
+      <h4>ORDER & PAY</h4>
+      <p>Pick your choice of service.</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-road logo-small"></span>
+      <h4>PICK UP</h4>
+      <p>A Wuala Driver will pick up your laundry.</p>
+    </div>
+  </div>
+  <br><br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-tint logo-small"></span>
+      <h4>WASH, DRY, FOLD</h4>
+      <p>We will do all the dirty work for you.</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-home logo-small"></span>
+      <h4>DELIVERY</h4>
+      <p>You'll have your clean laundry back in less than 24 hrs.</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-thumbs-up logo-small"></span>
+      <h4 style="color:#303030;">STRESS FREE</h4>
+      <p>We guarantee you have nothing to worry about.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Container (Pricing Section) -->
+<div id="pricing" class="container-fluid">
+  <div class="text-center">
+    <h2>Pricing</h2>
+    <h4>Choose a payment plan that works for you</h4>
+  </div>
+  <div class="row slideanim">
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Single Wash</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>1</strong> Pick Up</p>
+          <p><strong>2</strong> Washes</p>
+          <p><strong>2</strong> Dry</p>
+          <p><strong>1</strong> Fold</p>
+          <p><strong>1</strong> Delivery</p>
+        </div>
+        <div class="panel-footer">
+          <h3>$35</h3>
+          <h4>per demand</h4>
+          <!--<button class="btn btn-lg">Sign Up </button>-->
+        </div>
+      </div>      
+    </div>     
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Pro</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>4</strong> Pick Ups</p>
+          <p><strong>8</strong> Washes</p>
+          <p><strong>8</strong> Dry</p>
+          <p><strong>4</strong> Fold</p>
+          <p><strong>4</strong> Deliveries</p>
+        </div>
+        <div class="panel-footer">
+          <h3>$99</h3>
+          <h4>per month</h4>
+          <!--<button class="btn btn-lg">Sign Up</button>-->
+        </div>
+      </div>      
+    </div>       
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Premium</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>5</strong> Pick Ups</p>
+          <p><strong>12</strong> Washes</p>
+          <p><strong>12</strong> Dry</p>
+          <p><strong>5</strong> Fold</p>
+          <p><strong>5</strong> Deliveries</p>
+        </div>
+        <div class="panel-footer">
+          <h3>$149</h3>
+          <h4>per month</h4>
+          <!--<button class="btn btn-lg">Sign Up</button>-->
+        </div>
+      </div>      
+    </div>    
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div id="contact" class="container-fluid bg-grey">
+  <h2 class="text-center">CONTACT</h2>
+  <div class="row">
+    <div class="col-sm-5">
+        <br>
+      <p>Contact us and we'll get back to you within 24 hours.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Atlanta, GA</p>
+      <p><span class="glyphicon glyphicon-phone"></span> 770.827.0169</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> wuala.app@gmail.com</p>
+    </div>
+    <div class="col-sm-7 slideanim">
+        <form class="d-flex justify-content-center" action="contact-form.php" method="post" enctype="multipart/form-data" role="form">
+            <div class="form-group p-2">
+                <label for="exampleInputName2"></label>
+                <input type="text" class="form-control" id="exampleInputName2" placeholder="Your Name">
+            </div>
+            <div class="form-group p-2">
+                <label for="exampleInputEmail2"></label>
+                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Your Email">
+            </div>
+            <br>
+            <textarea class="form-control" id="message" name="message" placeholder="Drop us a line" rows="5"></textarea><br>
+            <button class="btn btn-default pull-right" type="submit">Send</button>  
+        </form>
+              
+              
+              
+              <!--<div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="message" name="message" placeholder="Drop us a line" rows="5"></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">Send</button>     
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<!-- Image of location/map -->
+<!--<img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%">-->
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>Made in Atlanta</p>
+</footer>
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+
+</body>
+</html>

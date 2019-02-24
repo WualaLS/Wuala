@@ -2,14 +2,14 @@
   <q-page padding>
     <q-card>
       <q-card-title>
-        Beta testers needed. Both for washing and washers. Please subscribe for more info.
+        Beta testers needed. Both for washing and drivers. Please subscribe for more info.
       </q-card-title>
       <q-card-separator />
       <q-card-main class="row gutter-md no-vert-gutter">
         <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="subscribers_first_name" float-label="First Name"></q-input></q-field>
         <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="subscribers_last_name" float-label="Last Name"></q-input></q-field>
         <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="subscribers_email" float-label="Email"></q-input></q-field>
-        <q-toggle v-model="subscribers_washer" color="primary" true-value="1" false-value="0" label="Are you interested in becoming a washer?"/>
+        <q-toggle v-model="subscribers_washer" color="primary" true-value="1" false-value="0" label="Are you interested in becoming a driver?"/>
       </q-card-main>
       <q-card-separator />
       <q-card-actions align="center">

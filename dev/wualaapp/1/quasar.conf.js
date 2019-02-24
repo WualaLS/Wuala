@@ -5,7 +5,8 @@ module.exports = function (ctx) {
     // app plugins (/src/plugins)
     plugins: [
       'axios',
-      'qs'
+      'qs',
+      'moment'
     ],
     css: [
       'app.styl'
@@ -69,7 +70,14 @@ module.exports = function (ctx) {
         'QCardActions',
         'QSearch',
         'QTooltip',
-        'QSelect'
+        'QSelect',
+        'QTable',
+        'QDatetime',
+        'QCollapsible',
+        'QFab',
+        'QFabAction',
+        'QLayoutFooter',
+        'QModal'
       ],
       directives: [
         'Ripple'

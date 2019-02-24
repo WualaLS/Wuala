@@ -1,0 +1,23 @@
+export default {
+  user_id: null,
+  user_username: null,
+  user_password: null,
+  user_salt: null,
+  user_authkey: null,
+  user_first_name: null,
+  user_last_name: null,
+  user_address_line_one: null,
+  user_address_line_two: null,
+  user_city: null,
+  user_state: null,
+  user_zip: null,
+  user_email: null,
+  user_mobile_number: null,
+  user_home_number: null,
+  user_birthday: null,
+  user_washer: null,
+  user_active: null,
+  user_password_last_updated: null,
+  user_password_last_updated_by: null,
+  user_password_reset: null
+}

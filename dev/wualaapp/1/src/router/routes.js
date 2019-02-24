@@ -4,6 +4,7 @@ export default [
     path: '/',
     component: () => import('layouts/default'),
     children: [
+      { name: 'Index', path: '', component: () => import('pages/index') },
       { name: 'LogIn', path: '/log-in', component: () => import('pages/LogIn') },
       { name: 'HomePage', path: '/home-page', component: () => import('pages/HomePage') }
     ]
@@ -26,7 +27,8 @@ export default [
       { name: 'WualaMap', path: '/wuala-map', component: () => import('pages/WualaMap') },
       { name: 'PaymentInfo', path: '/payment-info', component: () => import('pages/PaymentInfo') },
       { name: 'WasherSignUp', path: '/washer-sign-up', component: () => import('pages/WasherSignUp') },
-      { name: 'ScheduleWash', path: '/schedule-wash', component: () => import('pages/ScheduleWash') }
+      { name: 'ScheduleWash', path: '/schedule-wash', component: () => import('pages/ScheduleWash') },
+      { name: 'History', path: '/history', component: () => import('pages/History') }
     ]
   },
 

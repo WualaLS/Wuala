@@ -12,9 +12,11 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "moment": "^2.22.2",
+    "moment": "^2.24.0",
     "qs": "^6.5.2",
+    "twilio": "^3.27.1",
     "vue": "^2.5.17",
+    "vue-stripe-checkout": "^1.2.6",
     "vue2-google-maps": "^0.10.2"
   },
   "devDependencies": {

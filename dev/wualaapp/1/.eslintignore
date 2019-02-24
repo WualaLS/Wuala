@@ -1,1 +1,4 @@
 /dist
+src/store/user/mutations.js
+src/store/preferences/mutations.js
+/src/pages/LandingPage.vue
