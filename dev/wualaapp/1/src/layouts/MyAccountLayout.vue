@@ -40,7 +40,7 @@
             <q-btn flat dense color="deep-purple-8" icon="mdi-tshirt-crew" @click="washHistory" >Washer Portal</q-btn>
           </q-item>
           <q-item>
-            <q-btn flat dense color="light-green" icon="mdi-account-key" @click="washHistory" >Admin Portal</q-btn>
+            <q-btn flat dense color="light-green" icon="mdi-account-key" @click="adminPortal" >Admin Portal</q-btn>
           </q-item>
           <!--
           <q-item>
@@ -99,6 +99,10 @@ export default {
     becomeAWasher () {
       this.leftDrawerOpen = false
       this.$router.push({name: 'WasherSignUp'})
+    },
+    adminPortal () {
+      this.leftDrawerOpen = false
+      this.$router.push({name: 'AdminPortal'})
     }
   },
   mounted () {

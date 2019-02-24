@@ -28,7 +28,8 @@ export default [
       { name: 'PaymentInfo', path: '/payment-info', component: () => import('pages/PaymentInfo') },
       { name: 'WasherSignUp', path: '/washer-sign-up', component: () => import('pages/WasherSignUp') },
       { name: 'ScheduleWash', path: '/schedule-wash', component: () => import('pages/ScheduleWash') },
-      { name: 'History', path: '/history', component: () => import('pages/History') }
+      { name: 'History', path: '/history', component: () => import('pages/History') },
+      { name: 'AdminPortal', path: '/admin-portal', component: () => import('pages/AdminPortal') }
     ]
   },
 

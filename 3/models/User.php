@@ -33,7 +33,7 @@ use Yii;
  * @property int $user_premium 0 = No 1 = Yes
  * @property int $user_admin 0 = No 1 = Yes
  */
-class User extends \yii\db\ActiveRecord
+class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
     /**
      * {@inheritdoc}
@@ -93,61 +93,61 @@ class User extends \yii\db\ActiveRecord
             'user_admin' => 'User Admin',
         ];
     }
-    public function getId() 
-   { 
-     return $this->getPrimaryKey(); 
-   } 
-   public function getAuthKey() 
-   { 
-     return $this->user_authkey; 
-   } 
-   public function validateAuthKey($authKey) 
-   { 
-     return $this->getAuthKey() === $authKey; 
-   } 
-   public static function findIdentity($id) 
-   { 
-     return static::findOne($id); 
-   } 
-   public static function findIdentityByAccessToken($token, $type = null) 
-   { 
-     return static::findOne(['user_authkey' => $token]); 
-   } 
-   public static function findByUsername($username) 
-   { 
-     return static:: findOne(['user_username' => $username]); 
-   } 
-   public static function findByPasswordResetToken($token) 
-   { 
-     $expire = \Yii::$app->params['user.passwordResetTokenExpire']; 
-     $parts = explode('_', $token); 
-     $timestamp = (int) end($parts); 
-     if ($timestamp + $expire < time()) { 
-       // token expired 
-       return null; 
-     } 
-   } 
-   public function loadAll($data, $nullExtra = true)  
-   {  
-     foreach ($this->attributes() as $key => $value) {  
-         if (array_key_exists($value, $data)) {  
-             $this[$value] = $data[$value];  
-         } else {  
-             if ($nullExtra) {  
-                 $this[$value] = NULL;  
-             }  
-         }  
-     }  
-     return true;  
-   }  
-   public function hashPassword($password, $salt) {  
-     return md5($salt.$password);  
-   }  
-   public function generateSalt() {  
-     return uniqid('', true);  
-   } 
-   public function validatePassword($password) 
-   { 
-     return $this->user_password === md5($this->user_salt.$password); 
-   } 
+    public function getId()  
+  {  
+    return $this->getPrimaryKey();  
+  }  
+  public function getAuthKey()  
+  {  
+    return $this->user_authkey;  
+  }  
+  public function validateAuthKey($authKey)  
+  {  
+    return $this->getAuthKey() === $authKey;  
+  }  
+  public static function findIdentity($id)  
+  {  
+    return static::findOne($id);  
+  }  
+  public static function findIdentityByAccessToken($token, $type = null)  
+  {  
+    return static::findOne(['user_authkey' => $token]);  
+  }  
+  public static function findByUsername($username)  
+  {  
+    return static:: findOne(['user_username' => $username]);  
+  }  
+  public static function findByPasswordResetToken($token)  
+  {  
+    $expire = \Yii::$app->params['user.passwordResetTokenExpire'];  
+    $parts = explode('_', $token);  
+    $timestamp = (int) end($parts);  
+    if ($timestamp + $expire < time()) {  
+      // token expired  
+      return null;  
+    }  
+  }  
+  public function loadAll($data, $nullExtra = true)  
+  {  
+    foreach ($this->attributes() as $key => $value) {  
+        if (array_key_exists($value, $data)) {  
+            $this[$value] = $data[$value];  
+        } else {  
+            if ($nullExtra) {  
+                $this[$value] = NULL;  
+            }  
+        }  
+    }  
+    return true;  
+  }  
+  public function hashPassword($password, $salt) {  
+    return md5($salt.$password);  
+  }  
+  public function generateSalt() {  
+    return uniqid('', true);  
+  }  
+  public function validatePassword($password)  
+  {  
+    return $this->user_password === md5($this->user_salt.$password);  
+  }  
 }

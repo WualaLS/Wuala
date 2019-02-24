@@ -242,8 +242,12 @@ class UserApiController extends Controller
         \Yii::$app->response->format = Response::FORMAT_JSON;
 
         $UpModel = Yii::$app->request->post('UpModel');
-        $pendingWashes = Order::find()->andWhere(['order_user_id' => $UpModel['user_id']])
-        ->andWhere(['order_status' => 0])->all();
+        if ($UpModel['user_id'] == null) {
+            $pendingWashes = Order::find()->andWhere(['order_status' => 0])->all();
+        } else {
+            $pendingWashes = Order::find()->andWhere(['order_user_id' => $UpModel['user_id']])
+            ->andWhere(['order_status' => 0])->all();
+        }
 
         $pendingWashesOut = [];
         foreach ($pendingWashes as $key => $pendingWash) {
@@ -258,7 +262,9 @@ class UserApiController extends Controller
                     "order_pick_up_time" => $pendingWash['order_pick_up_time'],
                     "order_pick_up" => $pendingWash['order_pick_up'],
                     "order_drop_off" => $pendingWash['order_drop_off'],
-                    "order_status" => $pendingWash['order_status']      
+                    "order_status" => $pendingWash['order_status'] ,
+                    "order_driver_id" => $pendingWash['order_driver_id'],
+                    "order_washer_id" => $pendingWash['order_washer_id']    
                 ]
             );
         }
@@ -271,8 +277,12 @@ class UserApiController extends Controller
         \Yii::$app->response->format = Response::FORMAT_JSON;
 
         $UpModel = Yii::$app->request->post('UpModel');
-        $historyWashes = Order::find()->andWhere(['order_user_id' => $UpModel['user_id']])
-        ->andWhere(['order_status' => 2])->all();
+        if ($UpModel['user_id'] == null) {
+            $historyWashes = Order::find()->andWhere(['order_status' => 2])->all();
+        } else {
+            $historyWashes = Order::find()->andWhere(['order_user_id' => $UpModel['user_id']])
+            ->andWhere(['order_status' => 2])->all();
+        }
 
         $historyWashesOut = [];
         foreach ($historyWashes as $key => $historyWash) {
@@ -287,7 +297,9 @@ class UserApiController extends Controller
                     "order_pick_up_time" => $historyWash['order_pick_up_time'],
                     "order_pick_up" => $historyWash['order_pick_up'],
                     "order_drop_off" => $historyWash['order_drop_off'],
-                    "order_status" => $historyWash['order_status']      
+                    "order_status" => $historyWash['order_status'],
+                    "order_driver_id" => $historyWash['order_driver_id'],
+                    "order_washer_id" => $historyWash['order_washer_id']     
                 ]
             );
         }
