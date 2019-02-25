@@ -8,6 +8,9 @@
       row-key="order_id"
       dense
       >
+      <q-td slot="body-cell-actions" slot-scope="row">
+        <q-btn small flat icon="mdi-pencil" @click="adminEditOrder(row.row.order_id)"></q-btn>
+      </q-td>
     </q-table>
     <br>
     <q-table
@@ -185,6 +188,9 @@ export default {
           message: 'Failed to get wash history'
         })
       })
+    },
+    adminEditOrder (orderId) {
+      this.$router.push({name: 'AdminOrderEdit', params: { orderId: orderId }})
     }
   },
   mounted () {

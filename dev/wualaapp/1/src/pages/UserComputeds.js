@@ -19,6 +19,10 @@ export default {
     user_active: { get () { return this.$store.state.user.user_active }, set (value) { this.$store.commit('user/user_active', value) } },
     user_password_last_updated: { get () { return this.$store.state.user.user_password_last_updated }, set (value) { this.$store.commit('user/user_password_last_updated', value) } },
     user_password_last_updated_by: { get () { return this.$store.state.user.user_password_last_updated_by }, set (value) { this.$store.commit('user/user_password_last_updated_by', value) } },
-    user_password_reset: { get () { return this.$store.state.user.user_password_reset }, set (value) { this.$store.commit('user/user_password_reset', value) } }
+    user_password_reset: { get () { return this.$store.state.user.user_password_reset }, set (value) { this.$store.commit('user/user_password_reset', value) } },
+    user_driver: { get () { return this.$store.state.user.user_driver }, set (value) { this.$store.commit('user/user_driver', value) } },
+    user_pro: { get () { return this.$store.state.user.user_pro }, set (value) { this.$store.commit('user/user_pro', value) } },
+    user_premium: { get () { return this.$store.state.user.user_premium }, set (value) { this.$store.commit('user/user_premium', value) } },
+    user_admin: { get () { return this.$store.state.user.user_admin }, set (value) { this.$store.commit('user/user_admin', value) } }
   }
 }

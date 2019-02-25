@@ -16,8 +16,12 @@ export default {
   user_home_number: null,
   user_birthday: null,
   user_washer: null,
+  user_driver: null,
   user_active: null,
   user_password_last_updated: null,
   user_password_last_updated_by: null,
-  user_password_reset: null
+  user_password_reset: null,
+  user_pro: null,
+  user_premium: null,
+  user_admin: null
 }

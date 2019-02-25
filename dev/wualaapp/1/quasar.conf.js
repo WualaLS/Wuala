@@ -77,7 +77,8 @@ module.exports = function (ctx) {
         'QFab',
         'QFabAction',
         'QLayoutFooter',
-        'QModal'
+        'QModal',
+        'QTd'
       ],
       directives: [
         'Ripple'

@@ -68,7 +68,11 @@ class UserApiController extends Controller
                 'text-test',
                 'schedule-wash-ajax',
                 'get-pending-washes',
-                'get-history-washes'
+                'get-history-washes',
+                'get-order',
+                'get-drivers-dropdown',
+                'get-washers-dropdown',
+                'put-order-ajax'
             ]
         ];
 
@@ -87,7 +91,11 @@ class UserApiController extends Controller
                         'text-test',
                         'schedule-wash-ajax',
                         'get-pending-washes',
-                        'get-history-washes'
+                        'get-history-washes',
+                        'get-order',
+                        'get-drivers-dropdown',
+                        'get-washers-dropdown',
+                        'put-order-ajax'
    
                     ],
                     'allow' => true,
@@ -243,10 +251,10 @@ class UserApiController extends Controller
 
         $UpModel = Yii::$app->request->post('UpModel');
         if ($UpModel['user_id'] == null) {
-            $pendingWashes = Order::find()->andWhere(['order_status' => 0])->all();
+            $pendingWashes = Order::find()->andWhere(['!=', 'order_status', 2])->all();
         } else {
             $pendingWashes = Order::find()->andWhere(['order_user_id' => $UpModel['user_id']])
-            ->andWhere(['order_status' => 0])->all();
+            ->andWhere(['!=', 'order_status', 2])->all();
         }
 
         $pendingWashesOut = [];
@@ -305,5 +313,74 @@ class UserApiController extends Controller
         }
 
         return $historyWashesOut;
+    }
+    public function actionGetOrder()
+    {
+
+        \Yii::$app->response->format = Response::FORMAT_JSON;
+
+        $UpModel = Yii::$app->request->post('UpModel');
+
+        $order = Order::find()->andWhere(['order_id' => $UpModel['order_id']])->one();
+
+        return $order;
+    }
+    public function actionGetDriversDropdown()
+    {
+
+        \Yii::$app->response->format = Response::FORMAT_JSON;
+
+        $drivers = User::find()->andWhere(['user_driver' => 1])->all();
+
+        $driversOut = [];
+        
+        foreach ($drivers as $key => $driver) {
+            array_push(
+                $driversOut,
+                [
+                    "label" => $driver['user_first_name']." ".$driver['user_last_name'],
+                    "value" => $driver['user_id'],
+                ]
+            );
+        }
+        
+        return $driversOut;
+    }
+    public function actionGetWashersDropdown()
+    {
+
+        \Yii::$app->response->format = Response::FORMAT_JSON;
+
+        $washers = User::find()->andWhere(['user_washer' => 1])->all();
+
+        $washersOut = [];
+        
+        foreach ($washers as $key => $washer) {
+            array_push(
+                $washersOut,
+                [
+                    "label" => $washer['user_first_name']." ".$washer['user_last_name'],
+                    "value" => $washer['user_id'],
+                ]
+            );
+        }
+        
+        return $washersOut;
+    }
+    public function actionPutOrderAjax()
+    {
+
+        \Yii::$app->response->format = Response::FORMAT_JSON;
+
+        $UpModel = Yii::$app->request->post('UpModel');
+        
+        $model = Order::findOne($UpModel['order_id']);
+        $model->loadAll($UpModel);
+
+        $UpModel["saved"] = $model->save();
+        $UpModel["errors"] = $model->errors;
+        $UpModel["model"] = $model;
+
+        return $UpModel;
     }
 }

@@ -17,6 +17,10 @@ export const user_active = (state, value) => { state.user_active = value}
 export const user_password_last_updated = (state, value) => { state.user_password_last_updated = value}
 export const user_password_last_updated_by = (state, value) => { state.user_password_last_updated_by = value}
 export const user_password_reset = (state, value) => { state.user_password_reset = value}
+export const user_driver = (state, value) => { state.user_driver = value}
+export const user_pro = (state, value) => { state.user_pro = value}
+export const user_premium = (state, value) => { state.user_premium = value}
+export const user_admin = (state, value) => { state.user_admin = value}
 
 export const setUser = (state, value) => {
 	Object.keys(state).forEach((key, index) =>{

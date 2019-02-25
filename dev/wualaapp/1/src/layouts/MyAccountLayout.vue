@@ -31,15 +31,15 @@
             <q-btn flat dense color="light-green" icon="mdi-washing-machine" @click="scheduleWash">Schedule a Wash</q-btn>
           </q-item>
           <q-item>
-            <q-btn flat dense color="deep-purple-8" icon="mdi-history" @click="washHistory" >Washes</q-btn>
+            <q-btn flat dense color="deep-purple-8" icon="mdi-history" @click="washHistory" >My Washes</q-btn>
           </q-item>
-          <q-item>
+          <q-item v-if="user_driver === 1">
             <q-btn flat dense color="light-green" icon="mdi-car" @click="scheduleWash">Driver Portal</q-btn>
           </q-item>
-          <q-item>
+          <q-item v-if="user_washer === 1">
             <q-btn flat dense color="deep-purple-8" icon="mdi-tshirt-crew" @click="washHistory" >Washer Portal</q-btn>
           </q-item>
-          <q-item>
+          <q-item v-if="user_admin === 1">
             <q-btn flat dense color="light-green" icon="mdi-account-key" @click="adminPortal" >Admin Portal</q-btn>
           </q-item>
           <!--
