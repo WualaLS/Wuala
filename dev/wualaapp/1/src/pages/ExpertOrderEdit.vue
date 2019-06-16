@@ -2,28 +2,64 @@
   <q-page padding>
     <q-card>
       <q-card-title>
-        Admin Edit
+        Expert Edit
       </q-card-title>
+      <q-stepper no-header-navigation flat ref="stepper">
+        <!-- Step: -->
+        <q-step default title="First Step" subtitle="Here we go">
+          ...Step content, components, ...
+        </q-step>
+
+        <!-- Step: -->
+        <q-step title="Step 2">...</q-step>
+
+        <!-- Step: -->
+        <q-step title="Step 3" subtitle="Review and submit">...</q-step>
+
+        <!--
+          Optional.
+
+          "Globally" available Stepper navigation which means
+          that it will be visible regardless of the current step.
+          If we'd put QStepperNavigation under a QStep then we'd
+          be using it for that step only.
+        -->
+        <q-stepper-navigation>
+          <q-btn
+            flat
+            @click="$refs.stepper.previous()"
+            label="Back"
+          />
+          <q-btn
+            @click="$refs.stepper.next()"
+            label="Next"
+          />
+        </q-stepper-navigation>
+      </q-stepper>
       <q-card-main class="row gutter-md no-vert-gutter">
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-datetime v-model="order_date" stack-label="Date" type="date" format="MM/DD/YYYY"></q-datetime></q-field>
+        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-datetime readonly v-model="order_date" stack-label="Date" type="date" format="MM/DD/YYYY"></q-datetime></q-field>
         <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-select readonly v-model="order_type" :options="typeOptions" stack-label="Wash Type"></q-select></q-field>
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-select v-model="order_pick_up_time" :options="timeOptions" stack-label="Preferred Pick Up Time"></q-select></q-field>
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-select v-model="order_preferred_drop_off" :options="timeOptions" stack-label="Preferred Drop Off Time"></q-select></q-field>
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-select v-model="order_bags" :options="numberOfBagsOptions" stack-label="Bags"></q-select></q-field>
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-select v-model="order_hypoallergenic" :options="yesNoOptions" stack-label="Hypoallergenic"></q-select></q-field>
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-select v-model="order_detergent" :options="detergentOptions" stack-label="Detergent"></q-select></q-field>
-        <q-field v-if="order_detergent == 4 || order_detergent == '4'" class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="order_detergent_other" float-label="Other Detergent"></q-input></q-field>
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-select v-model="order_dry_heat" :options="dryHeatOptions" stack-label="Dry Temp"></q-select></q-field>
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-select v-model="order_dryer_sheets" :options="yesNoOptions" stack-label="Dryer Sheets?"></q-select></q-field>
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-select v-model="order_driver_id" :options="driversOptions" stack-label="Driver"></q-select></q-field>
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-select v-model="order_washer_id" :options="washersOptions" stack-label="Washer"></q-select></q-field>
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-select v-model="order_status" :options="statusOptions" stack-label="Status"></q-select></q-field>
-        <q-field class="col-xs-12" :count="1000"><q-input v-model="order_special_instructions" type="textarea" :max-height="100" :min-rows="4" stack-label="Special Instructions"></q-input></q-field>
-        <q-field class="col-xs-12" :count="1000"><q-input v-model="order_admin_notes" type="textarea" :max-height="100" :min-rows="4" stack-label="Admin Notes"></q-input></q-field>
+        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-select readonly v-model="order_pick_up_time" :options="timeOptions" stack-label="Preferred Pick Up Time"></q-select></q-field>
+        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-select readonly v-model="order_preferred_drop_off" :options="timeOptions" stack-label="Preferred Drop Off Time"></q-select></q-field>
+        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-select readonly v-model="order_hypoallergenic" :options="yesNoOptions" stack-label="Hypoallergenic"></q-select></q-field>
+        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-select readonly v-model="order_detergent" :options="detergentOptions" stack-label="Detergent"></q-select></q-field>
+        <q-field v-if="order_detergent == 4 || order_detergent == '4'" class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input readonly v-model="order_detergent_other" float-label="Other Detergent"></q-input></q-field>
+        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-select readonly v-model="order_dry_heat" :options="dryHeatOptions" stack-label="Dry Temp"></q-select></q-field>
+        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-select readonly v-model="order_dryer_sheets" :options="yesNoOptions" stack-label="Dryer Sheets?"></q-select></q-field>
+        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-select readonly v-model="order_driver_id" :options="driversOptions" stack-label="Driver"></q-select></q-field>
+        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-select readonly v-model="order_washer_id" :options="washersOptions" stack-label="Washer"></q-select></q-field>
+        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-select readonly v-model="order_status" :options="statusOptions" stack-label="Status"></q-select></q-field>
+        <q-field class="col-xs-12" :count="1000"><q-input readonly v-model="order_special_instructions" type="textarea" :max-height="100" :min-rows="4" stack-label="Special Instructions"></q-input></q-field>
       </q-card-main>
       <q-card-separator />
       <q-card-actions align="center">
-        <q-btn color="light-green" @click="saveOrder">Save</q-btn>
+        <q-btn color="light-green" @click="saveOrder">Picked Up</q-btn>
+        <q-btn color="light-green" @click="saveOrder">Dropped Off to Washer</q-btn>
+        <q-btn color="light-green" @click="saveOrder">Washer Received</q-btn>
+        <q-btn color="light-green" @click="saveOrder">Washer Checklist</q-btn>
+        <q-btn color="light-green" @click="saveOrder">Washer Done</q-btn>
+        <q-btn color="light-green" @click="saveOrder">Driver Pick Up</q-btn>
+        <q-btn color="light-green" @click="saveOrder">Drop Off</q-btn>
       </q-card-actions>
     </q-card>
   </q-page>
@@ -45,15 +81,6 @@ export default {
   mixins: [UserComputeds],
   data () {
     return {
-      image: 'https://i.imgur.com/HhqxVCW.jpg',
-      name: 'Shut up and take my money!',
-      description: 'Cats are the best dog!',
-      currency: 'PHP',
-      amount: 99999,
-      paymentType: 'Credit/Debit',
-      cardNumber: null,
-      expDate: null,
-      paymentModalOpened: false,
       order_id: null,
       order_bags: null,
       order_type: 0,
@@ -71,22 +98,16 @@ export default {
       order_admin_notes: null,
       order_driver_id: null,
       order_washer_id: null,
+      order_drop_off_washer_driver: null,
+      order_drop_off_washer_washer: null,
+      order_pick_up_washer_driver: null,
+      order_pick_up_washer_washer: null,
+      order_checklist_washer: null,
+      customerName: null,
+      customerAddress: null,
+      customerPhoneNumber: null,
       driversOptions: [],
       washersOptions: [],
-      paymentOptions: [
-        {
-          label: 'Choose...',
-          value: null
-        },
-        {
-          label: 'Credit/Debit',
-          value: 'Credit/Debit'
-        },
-        {
-          label: 'Bank Account',
-          value: 'Bank Account'
-        }
-      ],
       statusOptions: [
         {
           label: 'Choose...',
@@ -120,20 +141,6 @@ export default {
         },
         {
           label: 'Premium',
-          value: 2
-        }
-      ],
-      numberOfBagsOptions: [
-        {
-          label: 'Choose...',
-          value: null
-        },
-        {
-          label: '1',
-          value: 1
-        },
-        {
-          label: '2',
           value: 2
         }
       ],
@@ -323,7 +330,7 @@ export default {
       let UpModel = {
         'order_id': this.orderId
       }
-      this.$axios.post(process.env.serverPath + '/web/index.php?r=user-api%2Fget-order-with-user',
+      this.$axios.post(process.env.serverPath + '/web/index.php?r=user-api%2Fget-order',
         this.$qs.stringify({
           UpModel: UpModel
         })

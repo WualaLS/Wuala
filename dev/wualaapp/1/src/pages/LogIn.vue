@@ -2,7 +2,7 @@
   <q-page padding>
     <q-card>
       <q-card-main class="row gutter-md no-vert-gutter">
-        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="username" float-label="Username"></q-input></q-field>
+        <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="username" float-label="Email"></q-input></q-field>
         <q-field class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><q-input v-model="password" type="password" float-label="Password"></q-input></q-field>
       </q-card-main>
       <q-card-separator />

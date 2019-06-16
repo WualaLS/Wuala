@@ -30,7 +30,11 @@ export default [
       { name: 'ScheduleWash', path: '/schedule-wash', component: () => import('pages/ScheduleWash') },
       { name: 'History', path: '/history', component: () => import('pages/History') },
       { name: 'AdminPortal', path: '/admin-portal', component: () => import('pages/AdminPortal') },
-      { name: 'AdminOrderEdit', path: '/admin-order-edit', component: () => import('pages/AdminOrderEdit'), props: true }
+      { name: 'AdminOrderEdit', path: '/admin-order-edit', component: () => import('pages/AdminOrderEdit'), props: true },
+      { name: 'PaymentTest', path: '/payment-test', component: () => import('pages/PaymentTest'), props: true },
+      { name: 'PayPalDemo', path: '/pay-pal-demo', component: () => import('pages/PayPalDemo'), props: true },
+      { name: 'ExpertPortal', path: '/expert-portal', component: () => import('pages/ExpertPortal'), props: true },
+      { name: 'ExpertOrderEdit', path: '/expert-order-edit', component: () => import('pages/ExpertOrderEdit'), props: true }
     ]
   },
 

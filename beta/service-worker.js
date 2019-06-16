@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.cde6606669cac524801de3e1af2eceea.js"
+  "precache-manifest.f3c445ab18662fe45897750debf419f1.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "wualals"});

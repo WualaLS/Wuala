@@ -1,15 +1,15 @@
 <template>
   <q-page padding>
     <q-table
-      title="Pending Washes"
-      ref="washPendingTable"
-      :data="pendingWashes"
+      title="Assigned Orders"
+      ref="washAssignedTable"
+      :data="assignedWashes"
       :columns="washColumns"
       row-key="order_id"
       dense
       >
       <q-td slot="body-cell-actions" slot-scope="row">
-        <q-btn small flat icon="mdi-pencil" @click="adminEditOrder(row.row.order_id)"></q-btn>
+        <q-btn small flat icon="mdi-pencil" @click="expertEditOrder(row.row.order_id)"></q-btn>
       </q-td>
     </q-table>
     <br>
@@ -30,13 +30,14 @@
 
 <script>
 import Moment from 'moment'
+import UserComputeds from 'pages/UserComputeds.js'
 
 export default {
-  name: 'AdminPortal',
+  name: 'ExpertPortal',
+  mixins: [UserComputeds],
   data () {
     return {
-      washHistory: [],
-      pendingWashes: [],
+      assignedWashes: [],
       washColumns: [
         {
           name: 'order_date',
@@ -135,68 +136,36 @@ export default {
     }
   },
   methods: {
-    save () {
-      console.log('save')
-      this.$q.notify({
-        color: 'green',
-        icon: 'done',
-        message: 'Saved'
-      })
-    },
-    getPendingWashes () {
-      console.log('scheduleWash')
+    getExpertAssignedWashes () {
+      console.log('getExpertAssignedWashes')
       let UpModel = {
-        'user_id': null
+        'user_id': this.user_id
       }
-      this.$axios.post(process.env.serverPath + '/web/index.php?r=user-api%2Fget-pending-washes',
+      this.$axios.post(process.env.serverPath + '/web/index.php?r=user-api%2Fget-expert-assigned-washes',
         this.$qs.stringify({
           UpModel: UpModel
         })
       ).then((response) => {
         console.log('save response')
         console.log(response.data)
-        this.pendingWashes = response.data
+        this.assignedWashes = response.data
       }).catch(error => {
         console.log('save error')
         console.log(error)
         this.$q.notify({
           color: 'negative',
           icon: 'warning',
-          message: 'Failed to get wash history'
+          message: 'Failed to get assigned washes'
         })
       })
     },
-    getHistoryWashes () {
-      console.log('scheduleWash')
-      let UpModel = {
-        'user_id': null
-      }
-      this.$axios.post(process.env.serverPath + '/web/index.php?r=user-api%2Fget-history-washes',
-        this.$qs.stringify({
-          UpModel: UpModel
-        })
-      ).then((response) => {
-        console.log('save response')
-        console.log(response.data)
-        this.washHistory = response.data
-      }).catch(error => {
-        console.log('save error')
-        console.log(error)
-        this.$q.notify({
-          color: 'negative',
-          icon: 'warning',
-          message: 'Failed to get wash history'
-        })
-      })
-    },
-    adminEditOrder (orderId) {
-      this.$router.push({name: 'AdminOrderEdit', params: { orderId: orderId }})
+    expertEditOrder (orderId) {
+      this.$router.push({name: 'ExpertOrderEdit', params: { orderId: orderId }})
     }
   },
   mounted () {
     console.log('mounted')
-    this.getPendingWashes()
-    // this.getHistoryWashes()
+    this.getExpertAssignedWashes()
   }
 }
 </script>

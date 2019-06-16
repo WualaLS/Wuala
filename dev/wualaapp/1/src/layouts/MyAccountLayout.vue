@@ -33,14 +33,11 @@
           <q-item>
             <q-btn flat dense color="deep-purple-8" icon="mdi-history" @click="washHistory" >My Washes</q-btn>
           </q-item>
-          <q-item v-if="user_driver === 1">
-            <q-btn flat dense color="light-green" icon="mdi-car" @click="scheduleWash">Driver Portal</q-btn>
-          </q-item>
-          <q-item v-if="user_washer === 1">
-            <q-btn flat dense color="deep-purple-8" icon="mdi-tshirt-crew" @click="washHistory" >Washer Portal</q-btn>
+          <q-item v-if="user_driver === 1 || user_washer === 1">
+            <q-btn flat dense color="light-green" icon="mdi-account-card-details" @click="expertPortal">Expert Portal</q-btn>
           </q-item>
           <q-item v-if="user_admin === 1">
-            <q-btn flat dense color="light-green" icon="mdi-account-key" @click="adminPortal" >Admin Portal</q-btn>
+            <q-btn flat dense color="deep-purple-8" icon="mdi-account-key" @click="adminPortal" >Admin Portal</q-btn>
           </q-item>
           <!--
           <q-item>
@@ -51,7 +48,7 @@
           </q-item>
           -->
           <q-item>
-            <q-btn flat dense color="deep-purple-8" icon="mdi-settings">Settings</q-btn>
+            <q-btn flat dense color="light-green" icon="mdi-settings">Settings</q-btn>
           </q-item>
         </q-list>
       </q-layout-drawer>
@@ -99,6 +96,10 @@ export default {
     becomeAWasher () {
       this.leftDrawerOpen = false
       this.$router.push({name: 'WasherSignUp'})
+    },
+    expertPortal () {
+      this.leftDrawerOpen = false
+      this.$router.push({name: 'ExpertPortal'})
     },
     adminPortal () {
       this.leftDrawerOpen = false

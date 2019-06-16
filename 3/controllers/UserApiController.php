@@ -72,7 +72,9 @@ class UserApiController extends Controller
                 'get-order',
                 'get-drivers-dropdown',
                 'get-washers-dropdown',
-                'put-order-ajax'
+                'put-order-ajax',
+                'submit-payment-ajax',
+                'get-expert-assigned-washes'
             ]
         ];
 
@@ -95,7 +97,9 @@ class UserApiController extends Controller
                         'get-order',
                         'get-drivers-dropdown',
                         'get-washers-dropdown',
-                        'put-order-ajax'
+                        'put-order-ajax',
+                        'submit-payment-ajax',
+                        'get-expert-assigned-washes'
    
                     ],
                     'allow' => true,
@@ -167,27 +171,35 @@ class UserApiController extends Controller
 
         $UpModel = Yii::$app->request->post('UpModel');
 
-        $model = new User();
-        $model->loadAll($UpModel);
-        // $model->user_id = $UpModel['user_id'];
-        $model->user_salt = $model->generateSalt();
-        $model->user_password = $model->hashPassword($model->user_password, $model->user_salt);
-        $UpModel["saved"] = $model->save();
-        $UpModel["errors"] = $model->errors;
-        $UpModel["model"] = $model;
+        $model = User::findOne($UpModel['user_username']);
+        $modelExist = User::find()->andWhere(['user_username' => $UpModel['user_username']])->one();
 
-        $modelPreferences = new Preferences();
-        $modelPreferences->preferences_user_id_fk = $model->user_id;
-        $modelPreferences->preferences_hypoallergenic = 0;
-        $modelPreferences->preferences_detergent = 3;
-        $modelPreferences->preferences_detergent_other = null;
-        $modelPreferences->preferences_dry_heat = 1;
-        $modelPreferences->preferences_dryer_sheets = 1;
-        $UpModel["savedPreferences"] = $modelPreferences->save();
-        $UpModel["errorsPreferences"] = $modelPreferences->errors;
-        $UpModel["Preferences"] = $modelPreferences;
+        if ($modelExist) {
+            return 'emailExists';
+        } else {
+            $model = new User();
+            $model->loadAll($UpModel);
+            // $model->user_id = $UpModel['user_id'];
+            $model->user_salt = $model->generateSalt();
+            $model->user_password = $model->hashPassword($model->user_password, $model->user_salt);
+            $UpModel["saved"] = $model->save();
+            $UpModel["errors"] = $model->errors;
+            $UpModel["model"] = $model;
 
-        return $UpModel;
+            $modelPreferences = new Preferences();
+            $modelPreferences->preferences_user_id_fk = $model->user_id;
+            $modelPreferences->preferences_hypoallergenic = 0;
+            $modelPreferences->preferences_detergent = 3;
+            $modelPreferences->preferences_detergent_other = null;
+            $modelPreferences->preferences_dry_heat = 1;
+            $modelPreferences->preferences_dryer_sheets = 1;
+            $UpModel["savedPreferences"] = $modelPreferences->save();
+            $UpModel["errorsPreferences"] = $modelPreferences->errors;
+            $UpModel["Preferences"] = $modelPreferences;
+
+            return $UpModel;
+        }
+
     }
     public function actionPutSubscriberAjax()
     {
@@ -259,6 +271,8 @@ class UserApiController extends Controller
 
         $pendingWashesOut = [];
         foreach ($pendingWashes as $key => $pendingWash) {
+            $driver = User::find()->andWhere(['user_id' => $pendingWash['order_driver_id']])->one();
+            $washer = User::find()->andWhere(['user_id' => $pendingWash['order_washer_id']])->one();
             array_push(
                 $pendingWashesOut,
                 [
@@ -271,8 +285,8 @@ class UserApiController extends Controller
                     "order_pick_up" => $pendingWash['order_pick_up'],
                     "order_drop_off" => $pendingWash['order_drop_off'],
                     "order_status" => $pendingWash['order_status'] ,
-                    "order_driver_id" => $pendingWash['order_driver_id'],
-                    "order_washer_id" => $pendingWash['order_washer_id']    
+                    "driver_fullname" => $driver['user_first_name'].' '.$driver['user_last_name'],
+                    "washer_fullname" => $washer ['user_first_name'].' '.$driver['user_last_name'] 
                 ]
             );
         }
@@ -314,6 +328,47 @@ class UserApiController extends Controller
 
         return $historyWashesOut;
     }
+    public function actionGetExpertAssignedWashes()
+    {
+
+        \Yii::$app->response->format = Response::FORMAT_JSON;
+
+        $UpModel = Yii::$app->request->post('UpModel');
+        $assignedWashesDriver = Order::find()->andWhere(['order_driver_id' => $UpModel['user_id']])
+            ->andWhere(['!=', 'order_status', 2])->all();
+        $assignedWashesWasher = Order::find()->andWhere(['order_washer_id' => $UpModel['user_id']])
+            ->andWhere(['!=', 'order_status', 2])->all();
+
+        $assignedWashes = array_merge($assignedWashesDriver,$assignedWashesWasher);
+
+        $assignedWashesOut = [];
+        $pushedWashes = [];
+        foreach ($assignedWashes as $key => $assignedWash) {
+            if (!in_array($assignedWash['order_id'], $pushedWashes)) {
+                array_push($pushedWashes,$assignedWash['order_id']);
+                $driver = User::find()->andWhere(['user_id' => $assignedWash['order_driver_id']])->one();
+                $washer = User::find()->andWhere(['user_id' => $assignedWash['order_washer_id']])->one();
+                array_push(
+                    $assignedWashesOut,
+                    [
+                        "order_id" => $assignedWash['order_id'],
+                        "order_bags" => $assignedWash['order_bags'],
+                        "order_hypoallergenic" => $assignedWash['order_hypoallergenic'],
+                        "order_user_id" => $assignedWash['order_user_id'],
+                        "order_date" => $assignedWash['order_date'],
+                        "order_pick_up_time" => $assignedWash['order_pick_up_time'],
+                        "order_pick_up" => $assignedWash['order_pick_up'],
+                        "order_drop_off" => $assignedWash['order_drop_off'],
+                        "order_status" => $assignedWash['order_status'] ,
+                        "driver_fullname" => $driver['user_first_name'].' '.$driver['user_last_name'],
+                        "washer_fullname" => $washer ['user_first_name'].' '.$driver['user_last_name'] 
+                    ]
+                );
+            }
+        }
+
+        return $assignedWashesOut;
+    }
     public function actionGetOrder()
     {
 
@@ -322,6 +377,21 @@ class UserApiController extends Controller
         $UpModel = Yii::$app->request->post('UpModel');
 
         $order = Order::find()->andWhere(['order_id' => $UpModel['order_id']])->one();
+
+        return $order;
+    }
+    public function actionGetOrderWithUser()
+    {
+
+        \Yii::$app->response->format = Response::FORMAT_JSON;
+
+        $UpModel = Yii::$app->request->post('UpModel');
+
+        $order = Order::find()->andWhere(['order_id' => $UpModel['order_id']])->with('user')->asArray()->one();
+
+        // $user = User::find()->andWhere(['user_id' => $order['order_user_id']])->asArray()->one();
+
+        // $order = array_merge($order,$user);
 
         return $order;
     }
@@ -382,5 +452,20 @@ class UserApiController extends Controller
         $UpModel["model"] = $model;
 
         return $UpModel;
+    }
+    public function actionSubmitPaymentAjax()
+    {
+        \Yii::$app->response->format = Response::FORMAT_JSON;
+         \Stripe\Stripe::setApiKey("sk_test_oWHlGKFrDBUAZChP118iyC2N");
+
+        // Token is created using Checkout or Elements!
+        // Get the payment token ID submitted by the form:
+        $token = "tok_1EF9pMJr47OsH7OzvT25ybe9";
+        $charge = \Stripe\Charge::create([
+            'amount' => 100,
+            'currency' => 'usd',
+            'description' => 'Example charge',
+            'source' => $token,
+        ]);
     }
 }

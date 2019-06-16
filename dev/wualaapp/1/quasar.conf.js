@@ -6,7 +6,8 @@ module.exports = function (ctx) {
     plugins: [
       'axios',
       'qs',
-      'moment'
+      'moment',
+      'vuelidate'
     ],
     css: [
       'app.styl'
@@ -15,8 +16,8 @@ module.exports = function (ctx) {
       ctx.theme.mat ? 'roboto-font' : null,
       'material-icons', // optional, you are not bound to it
       // 'ionicons',
-      'mdi'
-      // 'fontawesome'
+      'mdi',
+      'fontawesome'
     ],
     supportIE: false,
     build: {
@@ -78,7 +79,10 @@ module.exports = function (ctx) {
         'QFabAction',
         'QLayoutFooter',
         'QModal',
-        'QTd'
+        'QTd',
+        'QStepper',
+        'QStep',
+        'QStepperNavigation'
       ],
       directives: [
         'Ripple'
